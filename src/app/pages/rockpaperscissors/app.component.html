@@ -1,0 +1,198 @@
+<div class="content">
+   
+
+   <div class="video-player row position-relative m-auto">
+      <div class="position-relative p-0">
+         <app-videoplayer class="p-0"></app-videoplayer>
+
+         <div class="game-details header d-flex row position-absolute top-0 w-100 m-auto py-1" style="background: #101421F2;">
+            <div class="col-3 d-flex align-items-center text-uppercase p">Stake Limit: <span class="text-green">0 - 10</span></div>
+            <div class="col-6 text-center text-uppercase">
+               <p class="m-0" style="font-family: Matroska;color: #92FFD1;">{{CurrentGame}}</p>
+               <p class="m-0">({{GameCode}}-3700075)</p>
+            </div>
+            <div class="col-3 d-flex align-items-center justify-content-end text-uppercase">Max Profit: <span class="text-green">500</span></div>
+         </div>
+   
+         <div class="game-details header position-absolute timerEl">
+            <div class="text-center p-0 timer">{{timeLeft}}</div>
+            <div class="text-center p-1 mt-1 blink">LIVE</div>
+         </div>
+
+         <app-action-tray></app-action-tray>
+   
+         <div class="position-absolute agent-logo">
+            <img src="../assets/images/partner.svg">
+         </div>
+      </div>
+
+      <div class="game-details row w-100 m-auto py-1 justify-content-center bottom-0" style="background: linear-gradient(180deg, #101421 8.85%, #053755 100%);">
+         <div *ngIf="state == 'new'" class="text-center text-uppercase p-1 p-md-2 newGameText">
+            New Game Starting
+         </div>
+         <div class="row betResult" *ngIf="state == 'bet' || state == 'open'">
+            <div class="col-6 d-flex justify-content-center position-relative px-2 border-right">
+               <p>Silver</p>
+               <div class="mx-1 d-flex">
+                  <div class="flip-card">
+                     <div class="flip-card-inner">
+                       <div class="flip-card-front">
+                           <img src="../assets/images/back.png">
+                       </div>
+                       <div class="flip-card-back">
+                           <img src="../assets/images/card.png">
+                       </div>
+                     </div>
+                   </div>
+               </div>
+            </div>
+            <div class="col-6 d-flex justify-content-center position-relative px-2">
+               <p>Gold</p>
+               <div class="mx-1 d-flex">
+                  <div class="flip-card">
+                     <div class="flip-card-inner">
+                       <div class="flip-card-front">
+                           <img src="../assets/images/back.png">
+                       </div>
+                       <div class="flip-card-back">
+                           <img src="../assets/images/card.png">
+                       </div>
+                     </div>
+                   </div>
+               </div>
+            </div>
+         </div>
+      </div>
+
+   </div>
+   
+   <div class="position-relative mb-md-5" class="{{state}}">
+      <div class="row player-controls p-0 m-auto desktop d-none d-md-block w-75 overflow-hidden" style="border: 1.5px solid var(--green); background: #101421; border-radius: 20px;">
+          <app-bet-slip class="d-block p-0" [selected]="selected" [player]="player" [odds]="odds"></app-bet-slip>
+          
+          <div class="row m-0 p-0" style="height: 200px;">
+             <div class="col-4 left px-2 py-1">
+                <div class="row h-50">
+                  <div class="col col-6 p-1">
+                     <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                        <img src="./assets/images/rock.svg" style="height: 50px;">
+                        <p>Rock Silver</p>
+                        <p class="points">o.oo</p>
+                     </div>
+                  </div>
+                  <div class="col col-6 p-1">
+                     <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                        <img src="./assets/images/paper.svg" style="height: 50px;">
+                        <p>Paper Silver</p>
+                        <p class="points">o.oo</p>
+                     </div>
+                  </div>
+                </div>
+                <div class="row h-50">
+                  <div class="col col-12 p-1">
+                     <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                        <img src="./assets/images/scissors.svg" style="height: 50px;">
+                        <p>Scissors Silver</p>
+                        <p class="points">1.5o</p>
+                     </div>
+                  </div>
+                </div>
+             </div>
+             <div class="col-4 pe-none"></div>
+             <div class="col-4 right px-2 py-1">
+               <div class="row h-50">
+                  <div class="col col-6 p-1">
+                     <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                        <img src="./assets/images/rock.svg" style="height: 50px;">
+                        <p>Rock Gold</p>
+                        <p class="points">o.oo</p>
+                     </div>
+                  </div>
+                  <div class="col col-6 p-1">
+                     <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                        <img src="./assets/images/paper.svg" style="height: 50px;">
+                        <p>Paper Gold</p>
+                        <p class="points">o.oo</p>
+                     </div>
+                  </div>
+                </div>
+                <div class="row h-50">
+                  <div class="col col-12 p-1">
+                     <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                        <img src="./assets/images/scissors.svg" style="height: 50px;">
+                        <p>Scissors Gold</p>
+                        <p class="points">1.5o</p>
+                     </div>
+                  </div>
+                </div>
+             </div>
+          </div>
+       </div>
+      
+       <app-bet-slip class="d-block d-md-none p-0" [selected]="selected" [player]="player" [odds]="odds"></app-bet-slip>
+
+       <div class="row player-controls p-0 m-auto mobile show mt-4 position-relative" style="width: 85%; margin-bottom: 100px !important;">
+          <div class="top overflow-hidden" style="border: 1.5px solid var(--green); background: #101421; border-radius: 20px;">
+             <div class="row">
+                <div class="col p-1">
+                  <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                     <img src="./assets/images/scissors.svg" style="height: 50px;">
+                     <p>Rock Silver</p>
+                     <p class="points">1.5o</p>
+                  </div>
+                </div>
+                <div class="col p-1">
+                  <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                     <img src="./assets/images/scissors.svg" style="height: 50px;">
+                     <p>Paper Silver</p>
+                     <p class="points">1.5o</p>
+                  </div>
+                </div>
+             </div>
+             <div class="row">
+               <div class="col p-1">
+                  <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                     <img src="./assets/images/scissors.svg" style="height: 50px;">
+                     <p>Scissors Silver</p>
+                     <p class="points">1.5o</p>
+                  </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="bottom overflow-hidden" style="margin-top: -20px; border: 1.5px solid var(--green); background: #101421; border-radius: 20px;">
+            <div class="row">
+               <div class="col p-1">
+                 <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                    <img src="./assets/images/scissors.svg" style="height: 50px;">
+                    <p>Rock Gold</p>
+                    <p class="points">1.5o</p>
+                 </div>
+               </div>
+               <div class="col p-1">
+                 <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                    <img src="./assets/images/scissors.svg" style="height: 50px;">
+                    <p>Paper Gold</p>
+                    <p class="points">1.5o</p>
+                 </div>
+               </div>
+            </div>
+            <div class="row">
+              <div class="col p-1">
+                 <div (click)="AddBet('Player A', 4.15)" class="btn button">
+                    <img src="./assets/images/scissors.svg" style="height: 50px;">
+                    <p>Scissors Gold</p>
+                    <p class="points">1.5o</p>
+                 </div>
+             </div>
+           </div>
+          </div>
+       </div>
+      
+       <app-bet-dial [selected]="selected" ([betState])="betState"></app-bet-dial>
+      </div>
+
+   <app-popup></app-popup>
+
+   <app-rules></app-rules>
+</div>

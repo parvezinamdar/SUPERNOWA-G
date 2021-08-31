@@ -1,0 +1,12 @@
+<div class="row m-2 mx-md-5 g-4">
+<ng-container *ngFor="let item of gameList | keyvalue:keepOriginalOrder">
+    <div class="col-md-3 col-6" title="{{item.value.name}}">
+        <a class="cursor-pointer text-decoration-none" routerLink="/{{item.key}}">
+            <div class="position-relative rounded-3 overflow-hidden">
+                <img src="{{item.value.imagePath}}" class="img-responsive w-100" alt="{{item.Name}}">
+                <div class="game-name text-white position-absolute w-100 text-center bottom-0">{{item.value.name}}</div>
+            </div>
+        </a>
+    </div>
+</ng-container>
+</div>

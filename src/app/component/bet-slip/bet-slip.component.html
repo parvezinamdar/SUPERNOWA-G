@@ -1,0 +1,32 @@
+<div class="toolbar text-white d-none d-md-flex justify-content-evenly p-2 {{selected}}" style="background: #082434;">
+    <div class="my-auto" style="transform: matrix(1, 0, 0.3, 1, 0, 0);">{{player}}</div>
+    <div class="my-auto" style="transform: matrix(1, 0, 0.3, 1, 0, 0);">Odds{{odds?': '+odds:''}}</div>
+    <div class="my-auto text-white active"><div class="form-check form-switch d-flex" style="align-items: center; padding-right: 3rem; padding-left: 0px;position: relative;"><label _ngcontent-ped-c11="" for="flexSwitchCheckChecked" class="form-check-label">Quick Bet</label><input _ngcontent-ped-c11="" type="checkbox" id="flexSwitchCheckChecked" class="form-check-input" style="float: right;position: absolute;right: 0px; background-color: #ACACAC; width: 3em; height: 1.5em;background-image:  url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOC42OTE2NSIgY3k9IjgiIHI9IjgiIHRyYW5zZm9ybT0icm90YXRlKC0xODAgOC42OTE2NSA4KSIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyIiB4MT0iOC42OTE2NSIgeTE9Ii00Ljc2ODM3ZS0wNyIgeDI9IjguNjkxNjUiIHkyPSIxNiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTBDMkI3Ii8+CjxzdG9wIG9mZnNldD0iMC40OTQ3OTIiIHN0b3AtY29sb3I9IiM0NEYzRTgiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMkNGRkYyIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==); margin: 0px;"></div></div>
+    <div class="my-auto" style="transform: matrix(1, 0, -0.3, 1, 0, 0);">Profit{{odds ? ': ' + ((odds * stake) - stake).toFixed(2) : ''}}</div>
+    <div class="d-flex my-auto active" style="transform: matrix(1, 0, -0.3, 1, 0, 0);">
+       <img (click)="stake > 1 ? stake = stake - 1 : 1" src="../assets/images/icon-minus.svg" style="cursor:pointer; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;">
+       <div class="text-center mx-3">
+          <p class="text-white m-0">Stake</p>
+          <p class="m-0">{{stake}}</p>
+       </div>
+       <img (click)="stake = stake + 1" src="../assets/images/icon-plus.svg" style="cursor:pointer; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;">
+    </div>
+ </div>
+
+ <div class="toolbar text-white d-flex d-md-none justify-content-evenly p-2 m-2 {{selected}}" style="background: #082434; border: 1px solid #92FFD1; border-radius: 20px;">
+   <div class="my-auto">{{player}}</div>
+   <div class="my-auto">Odds{{odds?': '+odds:''}}</div>
+   <div class="my-auto">Profit{{odds ? ': ' + ((odds * stake) - stake).toFixed(2) : ''}}</div>
+</div>
+<div class="d-flex d-md-none m-2 {{selected}}" style="justify-content: space-between;">
+   <div class="my-auto text-white active">
+      <div class="form-check form-switch d-flex" style="align-items: center; padding-right: 2rem; padding-left: 0px; position: relative;"><label _ngcontent-ped-c11="" for="flexSwitchCheckChecked" class="form-check-label me-2">Quick Bet</label><input _ngcontent-ped-c11="" type="checkbox" id="flexSwitchCheckChecked" class="form-check-input" style="float: right; position: absolute; right: 0px; background-color: #ACACAC; width: 2em; height: 1em; background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOC42OTE2NSIgY3k9IjgiIHI9IjgiIHRyYW5zZm9ybT0icm90YXRlKC0xODAgOC42OTE2NSA4KSIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyIiB4MT0iOC42OTE2NSIgeTE9Ii00Ljc2ODM3ZS0wNyIgeDI9IjguNjkxNjUiIHkyPSIxNiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTBDMkI3Ii8+CjxzdG9wIG9mZnNldD0iMC40OTQ3OTIiIHN0b3AtY29sb3I9IiM0NEYzRTgiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMkNGRkYyIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==); margin: 0px;"></div>
+   </div>
+   <div class="d-flex my-auto active">
+      <img (click)="stake > 1 ? stake = stake - 1 : 1" src="../assets/images/icon-minus.svg" style="cursor:pointer; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;width: 20px; height: 20px;">
+       <div class="text-center text-white mx-3">
+          Stake: {{stake}}
+       </div>
+       <img (click)="stake = stake + 1" src="../assets/images/icon-plus.svg" style="cursor:pointer; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;width: 20px; height: 20px;">
+   </div>
+</div>

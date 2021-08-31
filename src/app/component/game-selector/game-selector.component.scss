@@ -1,0 +1,88 @@
+@import '~swiper/swiper-bundle';
+
+.swiper-slide {
+    cursor: pointer;
+}
+
+.swiper-slide .row {
+    background: #232A41;
+    border-radius: 16px;
+    padding: 10px;
+    border: 1.5px solid #232A41;
+    margin: 0px;
+    color: white;
+}
+
+    .swiper-slide img {
+        border-radius: 100%;
+        width: 20px;
+        height: 20px;
+        object-fit: contain;
+    }
+
+    .swiper-button-prev, .swiper-button-next {
+        top: 25%;
+    }
+
+        .swiper-slide div {
+        font-size: 12px;
+        }
+        .swiper-slide .row {
+        border-radius: 50px;
+        }
+        .swiper-button-next::after, .swiper-button-prev::after{
+            content: none;
+        }
+        .swiper-button-prev {
+        background-image: url(/assets/images/icon-left.svg) !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 25px;
+        height: 25px;
+        box-shadow: 0px 3px 5px rgb(0 0 0 / 40%), inset 0px 1px 0px rgb(255 255 255 / 30%);
+        border-radius: 50%;
+        background-size: cover;
+        }
+        .swiper-button-next {
+        background-image: url(/assets/images/icon-right.svg) !important;
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 25px;
+        height: 25px;
+        box-shadow: 0px 3px 5px rgb(0 0 0 / 40%), inset 0px 1px 0px rgb(255 255 255 / 30%);
+        border-radius: 50%;
+        background-size: cover;
+        }
+
+        .swiper-button-prev:hover, .swiper-button-next:hover {
+            box-shadow: inset 0px 0px 0px 1px rgb(255 255 255);
+        }
+
+        @media (min-width: 768px) {
+            .swiper-slide img {
+                width: 40px; height: 40px;
+                }
+                .swiper-slide div {
+                font-size: 16px;
+                }
+                .swiper-slide .row {
+                border-radius: 16px;
+                }
+
+        }
+
+        .swiper-slide:hover div {
+            color: var(--green); 
+        }
+        
+        .swiper-slide:hover .row {
+            border: 1.5px solid var(--green); 
+        }
+
+        .swiper-slide-current div {
+            color: var(--green); 
+        }
+
+        .swiper-slide-current .row {
+            border: 1.5px solid var(--green); 
+        }

@@ -1,0 +1,549 @@
+<div id="popModalDesktop" tabindex="-1" class="modal fade" style="z-index: 99999999999;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+       <div class="modal-content bg-transparent border-0">
+          <div class="modal-body p-0" style="box-shadow: 0px 30px 24px rgba(0, 0, 0, 0.6); background: #232A41F2; border: 2px solid #92ffd130; border-radius: 40px;">
+             <ul id="myTab" class="nav nav-tabs border-0">
+                <li role="presentation" class="nav-item col-4"><button id="quickBet-tab" data-bs-toggle="tab" data-bs-target="#quickBet" type="button" class="nav-link px-2 py-3 w-100 active" style="font-size: 14px;border: 2px solid transparent; border-bottom: 0px; border-top-left-radius: 40px; border-top-right-radius: 40px;">Quick Bet</button></li>
+                <li role="presentation" class="nav-item col-4"><button id="betSlips-tab" data-bs-toggle="tab" data-bs-target="#betSlips" type="button" class="nav-link px-2 py-3 mx-auto w-100" style="font-size: 14px;border: 2px solid transparent; border-bottom: 0px; border-top-left-radius: 40px; border-top-right-radius: 40px;">Bet Slips</button></li>
+                <li role="presentation" class="nav-item col-4"><button id="gameResults-tab" data-bs-toggle="tab" data-bs-target="#gameResults" type="button" class="nav-link px-2 py-3 w-100" style="font-size: 14px;border: 2px solid transparent; border-bottom: 0px; border-top-left-radius: 40px; border-top-right-radius: 40px;">Game Results</button></li>
+             </ul>
+             <div class="tab-content" style="margin-top: -1px;">
+                <div id="quickBet" class="tab-pane fade show active bg-white p-4" style="border: 2px solid #92FFD1; border-radius: 40px; border-top-left-radius: 0px;">
+                   <p style="color: #7B7B7B;">QuickBet mode is on! After single click on any selection, it will place your bet immediately. See all your bets on</p>
+                   <ul class="row p-0 m-auto g-2">
+                      <li class="col-3"><div>50</div></li>
+                      <li class="col-3"><div>50</div></li>
+                      <li class="col-3"><div>50</div></li>
+                      <li class="col-3"><div>50</div></li>
+                      <li class="col-3"><div>50</div></li>
+                      <li class="col-3"><div>50</div></li>
+                      <li class="col-3"><div>50</div></li>
+                      <li class="col-3"><div>50</div></li>
+                   </ul>
+                   <input type="number" placeholder="Custom Amount" class="form-control w-100 text-white p-4 mt-2" style="background: linear-gradient(180deg, #025381 0%, #02466E 100%); box-shadow: inset 0px 12px 20px rgba(0, 0, 0, 0.5); border-radius: 20px;">
+                   <p class="text-center my-2" style="color: #7B7B7B;">Quick Bet is active with Rs. 20 bet</p>
+                   <div class="module-border-wrap m-auto"><button class="btn save px-4" style="font-size: 20px; background: linear-gradient(180deg, #14BA9D 0%, #44E9BA 50%, #23C8A6 94.27%); border-radius: 40px; color: #0F6F56;">Save</button></div>
+                </div>
+                <div id="betSlips" class="tab-pane fade bg-white p-4" style="border: 2px solid #92FFD1; border-radius: 40px;">
+                   <p class="text-dark">Your betting history is as follows:</p>
+                   <table class="w-100">
+                      <tr style="border-bottom: 2px solid black;">
+                         <th class="text-dark fw-bold">Game Name</th>
+                         <th class="text-dark fw-bold">Odds</th>
+                         <th class="text-dark fw-bold">Stake</th>
+                         <th class="text-dark fw-bold">P/L</th>
+                      </tr>
+                      <tr>
+                         <td class="text-secondary">Live</td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                      </tr>
+                      <tr>
+                         <td class="text-secondary">Live</td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                      </tr>
+                      <tr>
+                         <td class="text-secondary">Live</td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                      </tr>
+                      <tr>
+                         <td class="text-secondary">Live</td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                      </tr>
+                      <tr>
+                         <td class="text-secondary">Live</td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                         <td class="text-secondary"></td>
+                      </tr>
+                   </table>
+                </div>
+                <div id="gameResults" class="tab-pane fade bg-white p-4" style="border: 2px solid #92FFD1; border-radius: 40px; border-top-right-radius: 0px;">
+                  <ul class="row p-0 m-auto g-2">
+                     <li class="col-2" *ngFor="let item of GameHistoryList">
+                        <div (click)="SetHistoryCards(item)">{{item.Winner=='Player A'?'A':'B'}}</div>
+                     </li>
+                  </ul>
+                   <div class="card w-100 border-0 text-center mt-4 result {{state}}" style="border-radius: 20px; background: linear-gradient(180deg, #015A8D 0%, #013F63 100%); box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.5);">
+                      <button type="button" class="btn-close" (click)="state = 'closed'" style="background: #92FFD1; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); color: black; border-radius: 50%; position: absolute; border: 2px solid #071C28; opacity: 1.0; width: 15px; height: 15px; font-size: 10px; line-height: 10px; font-family: Matroska; top: -5px; right: -5px;">X</button>
+                      <div class="card-header" style="background: #92FFD1; background: #92FFD1; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+                         <p class="mb-0 text-dark fw-bold">{{CurrentGame}}</p>
+                         <p class="mb-0 text-dark fw-bold">({{GameCode}}-2826577)</p>
+                      </div>
+                      <div class="player-cards teenpatti" *ngIf="GameCode=='TP' || GameCode=='TP20'">
+                        <div class="mt-2">
+                           <h6>Player A</h6>
+                           <div class="d-flex justify-content-center">
+                              <img src="../assets/images/card.png">
+                              <img src="../assets/images/card.png">
+                              <img src="../assets/images/card.png">
+                           </div>
+                           <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Player A'">Winner
+                           {{GameHistoryDetails.WinningHand ? ' (' + GameHistoryDetails.WinningHand + ')' : ''}}</div>
+                           <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Player B'">Loser</div>
+                        </div>
+                        <div class="mt-2">
+                           <h6>Player B</h6>
+                           <div class="d-flex justify-content-center">
+                              <img src="../assets/images/card.png">
+                              <img src="../assets/images/card.png">
+                              <img src="../assets/images/card.png">
+                           </div>
+                           <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Player B'">Winner
+                           {{GameHistoryDetails.WinningHand ? ' (' + GameHistoryDetails.WinningHand + ')' : ''}}</div>
+                           <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Player A'">Loser</div>
+                        </div>
+                        <div class="game-result draw" *ngIf="GameHistoryDetails.Winner=='Draw'"><br>Draw</div>
+                     </div>
+                     <div class="player-cards andar-bahar" *ngIf="GameCode=='AB' || GameCode=='GAB'">
+                        <div class="player-cont row" style="justify-content: center;">
+                           <div class="player-cont playera text-center col-6 mt-2">
+                              <h6>Andar</h6>
+                              <img src="../assets/images/card.png">
+                              <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Andar'">Winner</div>
+                              <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Bahar'">Loser</div>
+                           </div>
+
+                           <div class="player-cont playera text-center col-6 mt-2">
+                              <h6>Bahar</h6>
+                              <img src="../assets/images/card.png">
+                              <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Bahar'">Winner</div>
+                              <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Andar'">Loser</div>
+                           </div>
+
+                           <div class="player-cont playera text-center col-12 mt-2">
+                              <h6>Joker</h6>
+                              <img src="../assets/images/card.png">
+                           </div>
+                        </div>
+                        <div class="game-result draw mt-2" *ngIf="GameHistoryDetails.Winner=='Draw'"><br>Draw</div>
+                        <div class="game-result winner-hand mt-2">
+                           Winning Suite : {{GameHistoryDetails.WinningHand}}
+                        </div>
+                     </div>
+                     <div class="player-cards dragon-tiger" *ngIf="GameCode=='DT'">
+                        <div class="row">
+                           <div class="playera text-center col-6 mt-2">
+                              <h6>Dragon</h6>
+                              <img src="../assets/images/card.png">
+                              <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Dragon'">Winner</div>
+                              <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Tiger'">Loser</div>
+                           </div>
+                           <div class="playerb text-center col-6 mt-2">
+                              <h6>Tiger</h6>
+                              <img src="../assets/images/card.png">
+                              <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Tiger'">Winner</div>
+                              <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Dragon'">Loser</div>
+                           </div>
+                        </div>
+                        <div class="game-result draw mt-2" *ngIf="GameHistoryDetails.Winner=='Tie'"><br>Tie</div>
+                        <div class="game-result winner-hand mt-2">
+                           Dragon : {{GameHistoryDetails.WinningHand.DragonSuite}} | {{GameHistoryDetails.WinningHand.Dragon}}
+                        </div>
+                        <div class="game-result winner-hand mt-2">
+                           Tiger : {{GameHistoryDetails.WinningHand.TigerSuite}} | {{GameHistoryDetails.WinningHand.Tiger}}
+                        </div>
+                     </div>
+                     <div class="player-cards worli" *ngIf="GameCode=='WM'">
+                        <div class="playera mt-2">
+                           <img src="../assets/images/card.png">
+                           <img src="../assets/images/card.png">
+                           <img src="../assets/images/card.png">
+                          <div class="game-result win">Winner {{GameHistoryDetails.Winner}} ({{GameHistoryDetails.WinningHand}})
+                          </div>
+                        </div>
+                      </div>
+                      <div class="player-cards" *ngIf="GameCode=='ARW'">
+                        <div class="playera text-center mt-2">
+                           <img src="../assets/images/card.png">
+                        </div>
+                        <div class="game-result draw mt-2">{{GameHistoryDetails.Winner}}</div>
+                        <div class="game-result winner-hand-popup mt-2">
+                          <span class="d-block">Hand : {{GameHistoryDetails.WinningHand.Hand}} </span>
+                          <span class="d-block">Suite : {{GameHistoryDetails.WinningHand.Suite}}</span>
+                          <span class="d-block">{{GameHistoryDetails.WinningHand.Seven}}</span>
+                        </div>
+                      </div>
+                      <div class="player-cards" style="text-align: center;" *ngIf="GameCode=='LS'">
+                        <img src="../assets/images/card.png">
+                        <div class="game-result win">Winner: {{GameHistoryDetails.Winner}}</div>
+                        <div class="game-result overlay-winner-hand">
+                          {{GameHistoryDetails.WinningHand}}
+                        </div>
+                      </div>
+                      <div class="player-cards ttcards" *ngIf="GameCode=='TTC'">
+                        <div class="player-cont row" style="justify-content: center;">
+                          <div class="player-cont playera text-center col-6 mt-2">
+                            <img src="../assets/images/card.png">
+                            <h6>Player 8</h6>
+                            <div class="badge right">
+                              {{GameHistoryDetails?.Card?.Player8?.Score ? GameHistoryDetails?.Card?.Player8?.Score : 8}}</div>
+                          </div>
+              
+                          <div class="player-cont playera text-center col-6 mt-2">
+                            <img src="../assets/images/card.png">
+                            <h6>Player 9</h6>
+                            <div class="badge left">
+                              {{GameHistoryDetails?.Card?.Player9?.Score? GameHistoryDetails?.Card?.Player9?.Score : 9}}</div>
+                          </div>
+              
+                          <div class="player-cont playera text-center col-6 mt-2">
+                            <img src="../assets/images/card.png">
+                            <h6>Player 10</h6>
+                            <div class="badge left">
+                              {{GameHistoryDetails?.Card?.Player10?.Score ? GameHistoryDetails?.Card?.Player10?.Score : 10}}</div>
+                          </div>
+              
+                          <div class="player-cont playera text-center col-6 mt-2">
+                            <img src="../assets/images/card.png">
+                            <h6>Player 11</h6>
+                            <div class="badge left">
+                              {{GameHistoryDetails?.Card?.Player11?.Score ? GameHistoryDetails?.Card?.Player11?.Score : 11}}</div>
+                          </div>
+              
+                        </div>
+                        <div class="game-result win"><br>{{GameHistoryDetails.Winner}}</div>
+                        <div class="game-result winner-hand-popup text-center">{{GameHistoryDetails.WinningHand}}</div>
+                      </div>
+                      <div class="player-cards poker row" *ngIf="GameCode=='PK'">
+                        <div class="player-cont playera text-center col-6 mt-2" style="text-align: center;">
+                          <h6>Flop</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                        </div>
+                        <div class="player-cont col-6 row mt-2">
+                          <div class="player-cont playera col-6" style="text-align: center;">
+                            <h6 class="p-r-0">Turn</h6>
+                            <img src="../assets/images/card.png">
+                          </div>
+                          <div class="player-cont playera col-6" style="text-align: center;">
+                            <h6 class="p-r-0">River</h6>
+                            <img src="../assets/images/card.png">
+                          </div>
+                        </div>
+                        <div class="player-cont playera col-6 mt-2" style="margin-bottom: 0; text-align: center;">
+                          <h6>Player A</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Player A'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Player B'">Loser</div>
+                        </div>
+                        <div class="player-cont playerb col-6 mt-2" style="margin-bottom: 0; text-align: center;">
+                          <h6>Player B</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Player B'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Player A'">Loser</div>
+                        </div>
+                        <div class="player-cont" style="width: 100%;">
+                          <div class="game-result draw" *ngIf="GameHistoryDetails.Winner=='Split Pot!'"><br>Draw</div>
+                          <div class="game-result overlay-winner-hand">
+                            <br>{{GameHistoryDetails.WinningHand ? GameHistoryDetails.WinningHand : ''}}
+                          </div>
+                        </div>
+                      </div>
+                      <div class="player-cards baccarat" *ngIf="GameCode=='BC'">
+                        <div class="playera text-center position-relative">
+                          <h6>Player <span class="score"
+                              [ngClass]="GameHistoryDetails.PlayerAScore>GameHistoryDetails.PlayerBScore?'green':'red'">{{GameHistoryDetails.PlayerAScore}}</span>
+                          </h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Player'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Banker'">Loser</div>
+                        </div>
+                        <br>
+                        <div class="playerb text-center position-relative">
+                          <h6>Banker <span class="score"
+                              [ngClass]="GameHistoryDetails.PlayerBScore>GameHistoryDetails.PlayerAScore?'green':'red'">{{GameHistoryDetails.PlayerBScore}}</span>
+                          </h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Banker'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Player'">Loser</div>
+                        </div>
+                        <div class="game-result draw mt-2" *ngIf="GameHistoryDetails.Winner=='Tie'"><br>Tie</div>
+                        <div class="game-result winner-hand-popup mt-2">{{GameHistoryDetails.WinningHand}}</div>
+                      </div>
+                      <div class="player-cards king-race" *ngIf="GameCode=='KR'">
+                        <div class="playera mt-2" style="text-align: center;">
+                          <h6>Spade</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+              
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Spade'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner!='Spade'">Loser</div>
+                        </div>
+                        <div class="playerb mt-2" style="text-align: center;">
+                          <h6>Club</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+              
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Club'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner!='Club'">Loser</div>
+                        </div>
+                        <div class="clearfix"></div>
+                        <div class="playera mt-2" style="text-align: center;">
+                          <h6>Diamond</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Diamond'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner!='Diamond'">Loser</div>
+                        </div>
+                        <div class="playerb mt-2" style="text-align: center;">
+                          <h6>Heart</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Heart'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner!='Heart'">Loser</div>
+                        </div>
+                        <div class="game-result draw mt-2" *ngIf="GameHistoryDetails.Winner=='Draw'"><br>Draw</div>
+                        <div class="game-result draw mt-2">
+                          <span class="text-gold d-block" *ngIf="GameHistoryDetails.WinningHand.Hand">Hand :
+                            {{GameHistoryDetails.WinningHand.Hand}}</span>
+                          <span class="text-gold d-block" *ngIf="GameHistoryDetails.WinningHand.Color">Color :
+                            {{GameHistoryDetails.WinningHand.Color}}</span>
+                        </div>
+                      </div>
+                      <div class="player-cards ttcards" *ngIf="GameCode=='CQ'">
+                        <div class="player-cont row" style="justify-content: center;">
+                          <div class="player-cont playera text-center col-6 mt-2">
+                            <img src="../assets/images/card.png">
+                            <img src="../assets/images/card.png">
+                            <img src="../assets/images/card.png">
+                            <h6>Player 0</h6>
+                            <div class="badge right">
+                              {{GameHistoryDetails?.Card?.Player8?.Score ? GameHistoryDetails?.Card?.Player8?.Score : 8}}</div>
+                          </div>
+              
+                          <div class="player-cont playera text-center col-6 mt-2">
+                            <img src="../assets/images/card.png">
+                            <img src="../assets/images/card.png">
+                            <img src="../assets/images/card.png">
+                            <h6>Player 1</h6>
+                            <div class="badge left">
+                              {{GameHistoryDetails?.Card?.Player9?.Score? GameHistoryDetails?.Card?.Player9?.Score : 9}}</div>
+                          </div>
+              
+                          <div class="player-cont playera text-center col-6 mt-2">
+                            <img src="../assets/images/card.png">
+                            <img src="../assets/images/card.png">
+                            <img src="../assets/images/card.png">
+                            <h6>Player 2</h6>
+                            <div class="badge left">
+                              {{GameHistoryDetails?.Card?.Player10?.Score ? GameHistoryDetails?.Card?.Player10?.Score : 10}}</div>
+                          </div>
+              
+                          <div class="player-cont playera text-center col-6 mt-2">
+                            <img src="../assets/images/card.png">
+                            <img src="../assets/images/card.png">
+                            <img src="../assets/images/card.png">
+                            <h6>Player 3</h6>
+                            <div class="badge left">
+                              {{GameHistoryDetails?.Card?.Player11?.Score ? GameHistoryDetails?.Card?.Player11?.Score : 11}}</div>
+                          </div>
+              
+                        </div>
+                        <div class="game-result win"><br>{{GameHistoryDetails.Winner}}</div>
+                      </div>
+                      <div class="player-cards rps row " *ngIf="GameCode=='RPS'">
+                        <div class="playera text-center position-relative col-6">
+                          <h6>Silver</h6>
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Silver'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Gold'">Loser</div>
+                        </div>
+                        <br>
+                        <div class="playerb text-center position-relative col-6">
+                          <h6>Gold</h6>
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Gold'">Winner</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner=='Silver'">Loser</div>
+                        </div>
+                        <div class="game-result draw mt-2" *ngIf="GameHistoryDetails.Winner=='Tie'"><br>Tie</div>
+                        <div class="game-result">Silver: {{GameHistoryDetails.WinningHand.Silver}}</div>
+                        <div class="game-result">Gold: {{GameHistoryDetails.WinningHand.Gold}}</div>
+                      </div>
+                      <div class="player-cards" style="text-align: center;" *ngIf="GameCode=='JK'">
+                        <img src="../assets/images/card.png">
+                        <div class="game-result win mt-2">Winner: {{GameHistoryDetails.Winner}}</div>
+                        <div class="game-result mt-2">{{GameHistoryDetails.WinningHand.Type}}</div>
+                        <div class="game-result">Color: {{GameHistoryDetails.WinningHand.Color}}</div>
+                        <div class="game-result">Card Suite: {{GameHistoryDetails.WinningHand.Suite}}</div>
+                      </div>
+                      <div class="player-cards row" *ngIf="GameCode=='PP'">
+                        <div class="playera col-6" style="text-align: center;">
+                          <h6>Player A</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Player A'">Winner
+                            {{GameHistoryDetails.WinningHand ? ' (' + GameHistoryDetails.WinningHand + ')' : ''}}</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner!='Player A'">Loser</div>
+                        </div>
+                        <div class="playerb col-6" style="text-align: center;">
+                          <h6>Player B</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Player B'">Winner
+                            {{GameHistoryDetails.WinningHand ? ' (' + GameHistoryDetails.WinningHand + ')' : ''}}</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner!='Player B'">Loser</div>
+                        </div>
+                        <div class="playera playerc col-12" style="text-align: center;">
+                          <h6>Player C</h6>
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <img src="../assets/images/card.png">
+                          <div class="game-result win" *ngIf="GameHistoryDetails.Winner=='Player C'">Winner
+                            {{GameHistoryDetails.WinningHand ? ' (' + GameHistoryDetails.WinningHand + ')' : ''}}</div>
+                          <div class="game-result loss" *ngIf="GameHistoryDetails.Winner!='Player C'">Loser</div>
+                        </div>
+                        <div class="game-result draw" *ngIf="GameHistoryDetails.Winner=='Draw'"><br>Draw</div>
+                      </div>
+                   </div>
+                </div>
+             </div>
+          </div>
+          <button type="button" data-bs-dismiss="modal" class="btn-close" style="background: #232A41; border: 2px solid #8EF6CB; color: #83E5BF; font-family: Matroska; border-radius: 50%; position: absolute; bottom: 0px; right: 0px; width: 24px; height: 24px; opacity: 1.0; line-height: 16px;">X</button>
+       </div>
+    </div>
+ </div>
+
+ <div id="popModalMobile" tabindex="-1" class="modal fade" style="z-index: 99999999999;">
+   <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content bg-transparent border-0">
+         <div class="modal-body p-0" style="border-radius: 20px; border: 3px solid #7CE7BC;overflow: hidden; background: white;">
+            <div id="accordion" class="accordion accordion-flush">
+               <div class="accordion-item">
+                  <h2 class="accordion-header"><button type="button" data-bs-toggle="collapse" data-bs-target="#quickBet" class="accordion-button">Quick Bet</button></h2>
+                  <div id="quickBet" class="accordion-collapse collapse show" data-bs-parent="#accordion">
+                     <div class="accordion-body">
+                        <p style="color: #7B7B7B;">QuickBet mode is on! After single click on any selection, it will place your bet immediately. See all your bets on</p>
+                        <ul class="row p-0 m-auto g-2">
+                           <li class="col-3"><div>50</div></li>
+                           <li class="col-3"><div>50</div></li>
+                           <li class="col-3"><div>50</div></li>
+                           <li class="col-3"><div>50</div></li>
+                           <li class="col-3"><div>50</div></li>
+                           <li class="col-3"><div>50</div></li>
+                        </ul>
+                        <div class="position-relative mt-2">
+                           <input type="number" placeholder="Custom Amount" class="form-control w-100 text-white p-2" style="background: linear-gradient(180deg, #025381 0%, #02466E 100%); box-shadow: inset 0px 12px 20px rgba(0, 0, 0, 0.5); border-radius: 10px;">
+                           <img class="position-absolute" src="../assets/images/icon-save.svg" style="right: -10px; top: -5px;">
+                        </div>
+                        <p class="text-center my-2" style="color: #7B7B7B;">Quick Bet is active with Rs. 20 bet</p>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-item">
+                  <h2 class="accordion-header"><button type="button" data-bs-toggle="collapse" data-bs-target="#betSlips" class="accordion-button collapsed">Bet Slips</button></h2>
+                  <div id="betSlips" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                     <div class="accordion-body">
+                        <p class="text-dark">Your betting history is as follows:</p>
+                        <table class="w-100">
+                           <tr style="border-bottom: 2px solid black;">
+                              <th class="text-dark fw-bold">Game Name</th>
+                              <th class="text-dark fw-bold">Odds</th>
+                              <th class="text-dark fw-bold">Stake</th>
+                              <th class="text-dark fw-bold">P/L</th>
+                           </tr>
+                           <tr>
+                              <td class="text-secondary">Live</td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                           </tr>
+                           <tr>
+                              <td class="text-secondary">Live</td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                           </tr>
+                           <tr>
+                              <td class="text-secondary">Live</td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                           </tr>
+                           <tr>
+                              <td class="text-secondary">Live</td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                           </tr>
+                           <tr>
+                              <td class="text-secondary">Live</td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                              <td class="text-secondary"></td>
+                           </tr>
+                        </table>
+                     </div>
+                  </div>
+               </div>
+               <div class="accordion-item">
+                  <h2 class="accordion-header"><button type="button" data-bs-toggle="collapse" data-bs-target="#gameResults" class="accordion-button collapsed">Game Results</button></h2>
+                  <div id="gameResults" class="accordion-collapse collapse" data-bs-parent="#accordion">
+                     <div class="accordion-body">
+                        <ul class="row p-0 m-auto g-2">
+                           <li class="col-2" *ngFor="let item of GameHistoryList">
+                              <div (click)="SetHistoryCards(item)">{{item.Winner=='Player A'?'A':'B'}}</div>
+                           </li>
+                        </ul>
+                        <div class="card w-100 border-0 text-center mt-4" style="border-radius: 20px; background: linear-gradient(180deg, #015A8D 0%, #013F63 100%); box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.5);">
+                           <button type="button" class="btn-close" style="background: #92FFD1; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); color: black; border-radius: 50%; position: absolute; border: 2px solid #071C28; opacity: 1.0; width: 15px; height: 15px; font-size: 10px; line-height: 10px; font-family: Matroska; top: -5px; right: -5px;">X</button>
+                           <div class="card-header" style="background: #92FFD1; background: #92FFD1; border-top-left-radius: 20px; border-top-right-radius: 20px;">
+                              <p class="mb-0 text-dark fw-bold">Live Teen Patti</p>
+                              <p class="mb-0 text-dark fw-bold">(ID - TP-2826577)</p>
+                           </div>
+                           <div class="card-body">
+                              <div>
+                                 <p class="mb-0">Player B</p>
+                                 <div class="cards d-flex justify-content-center m-auto" style="width: 30px;"><img src="../assets/images/card.png" class="w-100"><img src="../assets/images/card.png" class="w-100"><img src="../assets/images/card.png" class="w-100"></div>
+                                 <p class="text-green fw-bold" style="text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);">Winner : HIGH CARD</p>
+                              </div>
+                              <div>
+                                 <p class="mb-0">Player A</p>
+                                 <div class="cards d-flex justify-content-center m-auto" style="width: 30px;"><img src="../assets/images/card.png" class="w-100"><img src="../assets/images/card.png" class="w-100"><img src="../assets/images/card.png" class="w-100"></div>
+                                 <p class="mb-0" style="text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.25);">Loser</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <button type="button" data-bs-dismiss="modal" class="btn-close" style="background: #232A41; border: 2px solid #8EF6CB; color: #83E5BF; font-family: Matroska; border-radius: 50%; position: absolute; bottom: -20px; width: 24px; height: 24px; opacity: 1.0; left: 0; right: 0; margin-left: auto; margin-right: auto;">X</button>
+      </div>
+   </div>
+</div>

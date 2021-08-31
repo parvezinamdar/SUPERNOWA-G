@@ -1,0 +1,14 @@
+<div class="swiper-container my-2 px-5">
+   <div class="swiper-wrapper">
+      <ng-container *ngFor="let item of gameList | keyvalue:keepOriginalOrder">
+         <div class="swiper-slide" routerLink="/{{item.key}}" routerLinkActive="swiper-slide-current">
+            <div class="row">
+               <div class="col-3 p-0"><img src="{{item.value.imagePath}}"></div>
+               <div class="col-9 m-auto p-0">{{item.value.name}}</div>
+            </div>
+         </div>
+      </ng-container>
+   </div>
+   <div class="swiper-button-prev" (click)="games.slidePrev()"></div>
+   <div class="swiper-button-next" (click)="games.slideNext()"></div>
+</div>

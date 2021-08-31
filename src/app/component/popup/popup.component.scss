@@ -1,0 +1,127 @@
+.mobile-pop::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border-radius: 50%;
+    z-index: 1;
+    background: linear-gradient(to right, #4AFEC9, #006752);
+ }
+ 
+ .mobile-pop::before {
+    content: '';
+     position: absolute;
+     top: -5px;
+     left: -5px;
+     right: -5px;
+     bottom: -5px;
+     border: 1.5px solid #92FFD1;
+     border-radius: 50%;
+     z-index: -1;
+     background: #071C28;
+ }
+
+ .nav-tabs .nav-item {
+    font-family: Matroska;
+    color: var(--green);
+    font-size: 16px;
+    }
+    .nav-tabs .nav-link {
+    color: #8CEEC7;
+    }
+    .nav-tabs .nav-link.active {
+    border: 2px solid var(--green) !important;
+    border-bottom: 0px!important;
+    color: #101421;
+    }
+ 
+    .tab-content li div, #accordion li div {
+       background: #FFFFFF;
+       border: 2px solid #C4C4C4;
+       display: flex;
+       justify-content: center;
+       color: #C4C4C4;
+       align-content: center;
+       -webkit-align-items: center;
+       flex-wrap: wrap;
+       font-family: Matroska;
+    }
+    
+    #quickBet ul, #gameResults ul {
+       list-style: none;
+    }
+ 
+    #quickBet li div {
+       box-shadow: inset 0px 2px 3px rgba(0, 0, 0, 0.5);
+       min-height: 50px;
+       border-radius: 20px;
+    }
+    
+    #gameResults li div {
+       box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.25);
+       border-radius: 50%;
+       height: 75px;
+       width: 75px;
+    }
+    
+    #accordion #quickBet li {
+       height: 50px;
+    }
+ 
+    .tab-content li:hover div, #accordion li:hover div {
+       background: var(--green);
+       color: #112C3B;
+       box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3), inset 0px 2px 3px rgba(0, 0, 0, 0.5) !important;
+    }
+ 
+    .accordion button {
+       font-family: Matroska;
+       color: black;
+       font-size: 16px;
+       background: none;
+    }
+
+    
+@media (min-width: 992px) {
+    .modal-lg, .modal-xl {
+       max-width: 600px;
+    }
+ }
+ 
+ .accordion-button::after {
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzQiIGhlaWdodD0iMzQiIHZpZXdCb3g9IjAgMCAzNCAzNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTciIGN5PSIxNCIgcj0iMTIuNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE4MCAxNyAxNCkiIHN0cm9rZT0idXJsKCNwYWludDBfbGluZWFyKSIvPgo8ZyBmaWx0ZXI9InVybCgjZmlsdGVyMF9kaSkiPgo8Y2lyY2xlIGN4PSIxNyIgY3k9IjE0IiByPSIxMiIgdHJhbnNmb3JtPSJyb3RhdGUoLTE4MCAxNyAxNCkiIGZpbGw9IiMwRjI3MzUiLz4KPC9nPgo8cGF0aCBkPSJNMTguMzg1NiAxOS42QzE3Ljc2OTggMjAuNjY2NyAxNi4yMzAyIDIwLjY2NjcgMTUuNjE0NCAxOS42TDExLjQ1NzQgMTIuNEMxMC44NDE2IDExLjMzMzMgMTEuNjExNCAxMCAxMi44NDMxIDEwTDIxLjE1NjkgMTBDMjIuMzg4NiAxMCAyMy4xNTg0IDExLjMzMzMgMjIuNTQyNiAxMi40TDE4LjM4NTYgMTkuNloiIGZpbGw9IiM5MkZGRDEiLz4KPGRlZnM+CjxmaWx0ZXIgaWQ9ImZpbHRlcjBfZGkiIHg9IjAiIHk9IjAiIHdpZHRoPSIzNCIgaGVpZ2h0PSIzNCIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiPgo8ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPgo8ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAxMjcgMCIgcmVzdWx0PSJoYXJkQWxwaGEiLz4KPGZlT2Zmc2V0IGR5PSIzIi8+CjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjIuNSIvPgo8ZmVDb2xvck1hdHJpeCB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMC40IDAiLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJlZmZlY3QxX2Ryb3BTaGFkb3ciLz4KPGZlQmxlbmQgbW9kZT0ibm9ybWFsIiBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJlZmZlY3QxX2Ryb3BTaGFkb3ciIHJlc3VsdD0ic2hhcGUiLz4KPGZlQ29sb3JNYXRyaXggaW49IlNvdXJjZUFscGhhIiB0eXBlPSJtYXRyaXgiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMTI3IDAiIHJlc3VsdD0iaGFyZEFscGhhIi8+CjxmZU9mZnNldCBkeT0iMSIvPgo8ZmVDb21wb3NpdGUgaW4yPSJoYXJkQWxwaGEiIG9wZXJhdG9yPSJhcml0aG1ldGljIiBrMj0iLTEiIGszPSIxIi8+CjxmZUNvbG9yTWF0cml4IHR5cGU9Im1hdHJpeCIgdmFsdWVzPSIwIDAgMCAwIDEgMCAwIDAgMCAxIDAgMCAwIDAgMSAwIDAgMCAwLjMgMCIvPgo8ZmVCbGVuZCBtb2RlPSJub3JtYWwiIGluMj0ic2hhcGUiIHJlc3VsdD0iZWZmZWN0Ml9pbm5lclNoYWRvdyIvPgo8L2ZpbHRlcj4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyIiB4MT0iMTciIHkxPSIyIiB4Mj0iMTciIHkyPSIyNiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMDcxQzI4Ii8+CjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzA3MUMyOCIvPgo8L2xpbmVhckdyYWRpZW50Pgo8L2RlZnM+Cjwvc3ZnPgo=);
+ }
+
+ img {
+   align-self: flex-start;
+ }
+
+ .result.closed {
+    display: none;
+ }
+
+ .player-cards img {
+    max-height: 50px;
+    margin: 5px;
+ }
+
+ .badge {
+   background: white;
+   color: black;
+ }
+
+ .score {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+ }
+
+ .score.green {
+   background: green;
+}
+
+.score.red {
+   background: red;
+}
