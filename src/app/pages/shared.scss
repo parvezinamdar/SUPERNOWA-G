@@ -92,7 +92,7 @@
  }
  .game-details {
     font-size: 8px;
-    z-index: 9999999999;
+    z-index: 999;
  
     .timer {
        font-size: 10px;
@@ -248,7 +248,7 @@
                 transform: skewX((12deg + $i * 3));
              }
              &:nth-child(2) p {
-                transform: skewX((16deg + $i * 5));
+                transform: skewX((16deg + $i * 1));
              }
           }
        }
@@ -264,11 +264,26 @@
     }
  }
  .right .row {
+   @for $i from 0 to 4 {
+      &:nth-child(#{$i + 1}) {
+         .col-4 {
+            &:nth-child(1) p {
+               transform: skewX(-(14deg + $i * 2));
+            }
+            &:nth-child(2) p {
+               transform: skewX(-(20deg + $i * 4));
+            }
+            &:nth-child(3) p {
+               transform: skewX(-(14deg + $i * 2));
+            }
+         }
+      }
+   }
     @for $i from 0 to 4 {
        &:nth-child(#{$i + 1}) {
           .col-3 {
              &:nth-child(1) p {
-                transform: skewX(-(24deg + $i * 3));
+                transform: skewX(-(14deg + $i * 2));
              }
              &:nth-child(2) p {
                 transform: skewX(-(20deg + $i * 4));
@@ -359,7 +374,7 @@
    width: 500px;
 }
 .left .row .col-6 .button::after {
-  width: 300px;
+  width: 295px;
 }
 .left .row .col-4 .button::after {
   width: 250px;
@@ -427,7 +442,7 @@
     width: 520px;
  }
 .right .row .col-6 .button::after {
-   width: 320px;
+   width: 295px;
 }
 .right .row .col-4 .button::after {
    width: 270px;

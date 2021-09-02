@@ -22,6 +22,11 @@ export class BetDialComponent implements OnInit {
   constructor() {}
 
   ngOnInit(): void {
+
+    let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+
+    let device = isMobile ? 'mobile' : 'desktop';
+
     var rotation = 0;
 
     $(document).on("change", "#flexSwitchCheckChecked", () => {
@@ -62,25 +67,24 @@ export class BetDialComponent implements OnInit {
       $(".mobile-dial").fadeOut();
     });
 
+    let $first = $('.desktop.circle-container li:first');
+    let $last = $('.desktop.circle-container li:last');
+
     $(document).on("click", ".arrow-left", function() {
-      var $first = $('.circle-container li:first');
-      var $last = $('.circle-container li:last');
       rotation += 30;
-      $(".circle-container").css({'transform' : 'scale(0.9) rotate('+ rotation +'deg)'});
+      $(".desktop.circle-container").css({'transform' : 'scale(0.9) rotate('+ rotation +'deg)'});
       var $next;
-      var $selected = $(".circle-container li.active");
-      $next = $selected.prev('li').length ? $selected.prev('li') : $last;
+      var $selected = $(".desktop.circle-container li.active");
+      $next = $selected.prev('li').length > 0 ? $selected.prev('li') : $last;
       $selected.removeClass("active");
       $next.addClass('active');
     });
 
     $(document).on("click", ".arrow-right", function() {
-      var $first = $('.circle-container li:first');
-      var $last = $('.circle-container li:last');
       rotation -= 30;
-      $(".circle-container").css({'transform' : 'scale(0.9) rotate('+ rotation +'deg)'});
+      $(".desktop.circle-container").css({'transform' : 'scale(0.9) rotate('+ rotation +'deg)'});
       var $prev;
-      var $selected = $(".circle-container li.active");
+      var $selected = $(".desktop.circle-container li.active");
       $prev = $selected.next('li').length ? $selected.next('li') : $first;
       $selected.removeClass("active");
       $prev.addClass('active');
@@ -88,78 +92,85 @@ export class BetDialComponent implements OnInit {
 
     $(document).on("click", ".c10", function() {
       rotation = 0;
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(0deg)'});
-      $(".circle-container li").removeClass("active");
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(0deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c11", function() {
       rotation = -30;
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-30deg)'});
-      $(".circle-container li").removeClass("active");
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-30deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c12", function() {
       rotation = -60;
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-60deg)'});
-      $(".circle-container li").removeClass("active");
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-60deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c1", function() {
       rotation = -90;
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-90deg)'});
-      $(".circle-container li").removeClass("active");
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-90deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c2", function() {
       rotation = -120;
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-120deg)'});
-      $(".circle-container li").removeClass("active");
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-120deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c3", function() {
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-150deg)'});
-      $(".circle-container li").removeClass("active");
+      rotation = -150;
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-150deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c4", function() {
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-180deg)'});
-      $(".circle-container li").removeClass("active");
+      rotation = -180;
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-180deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c5", function() {
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-210deg)'});
-      $(".circle-container li").removeClass("active");
+      rotation = -210;
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-210deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c6", function() {
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-240deg)'});
-      $(".circle-container li").removeClass("active");
+      rotation = -240;
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-240deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c7", function() {
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-270deg)'});
-      $(".circle-container li").removeClass("active");
+      rotation = -270;
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-270deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c8", function() {
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-300deg)'});
-      $(".circle-container li").removeClass("active");
+      rotation = -300;
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-300deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
 
     $(document).on("click", ".c9", function() {
-      $(".circle-container").css({'transform': 'scale(0.9) rotate(-330deg)'});
-      $(".circle-container li").removeClass("active");
+      rotation = -330;
+      $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-330deg)'});
+      $(`.${device}.circle-container li`).removeClass("active");
       $(this).addClass("active");
     });
   }

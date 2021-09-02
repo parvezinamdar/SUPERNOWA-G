@@ -185,8 +185,8 @@
  
     .circle-container {
      position: relative;
-     width: 20em;
-     height: 20em;
+    //  width: 20em;
+     height: 20rem;
      border-radius: 50%;
      padding: 0;
      list-style: none;
@@ -335,3 +335,13 @@
       transform: translateY(-20px)
   }
 }
+
+// .dial {
+//   padding-bottom: 70vw; overflow: hidden;
+// }
+
+// @media (min-width: 768px) {
+//   .dial {
+//     transform:scale(0.9);height: 230px;overflow: hidden;margin: auto;bottom: 0; position: absolute;left: 0;right: 0;margin-left: auto;margin-right: auto;
+//   }
+// }

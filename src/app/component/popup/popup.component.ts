@@ -10,7 +10,7 @@ import { ConstantService } from 'src/app/services/constant.service';
 export class PopupComponent implements OnInit {
 
   @Input() GameHistoryList: any;
-  @Input() GameHistoryDetails: any;
+  @Input() GameHistoryDetails: any = [];
   @Input() GameDetails: any;
 
   GameList: any;
@@ -36,6 +36,7 @@ export class PopupComponent implements OnInit {
     this.CurrentGame = this.GameList[this.GameCode].name;
 
     if (this.GameCode=='TP' || this.GameCode=='TP20') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: ''};
       this.GameHistoryList = [
         {
           'Winner': 'Player A',
@@ -61,6 +62,7 @@ export class PopupComponent implements OnInit {
     } 
 
     if (this.GameCode=='AB' || this.GameCode=='GAB') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: ''};
       this.GameHistoryList = [
         {
           'Winner': 'Andar',
@@ -86,6 +88,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='DT') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: { Dragon: '', Tiger: '', DragonSuite: '', TigerSuite: ''} };
       this.GameHistoryList = [
         {
           'Winner': 'Tiger',
@@ -100,6 +103,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='RPS') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: {Silver: '', Gold: ''}};
       this.GameHistoryList = [
         {
           'Winner': 'Gold',
@@ -112,6 +116,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='WM') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: ''};
       this.GameHistoryList = [
         {
           'Winner': '6',
@@ -121,6 +126,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='PP') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: ''};
       this.GameHistoryList = [
         {
           'Winner': 'Player C',
@@ -130,6 +136,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='ARW') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: { Hand: '', Suite: '', Seven: ''}};
       this.GameHistoryList = [
         {
           'Winner': 'Akbar',
@@ -143,6 +150,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='LS') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: ''};
       this.GameHistoryList = [
         {
           'Winner': '7UP',
@@ -152,6 +160,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='TTC') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: ''};
       this.GameHistoryList = [
         {
           'Winner': 'Player 10',
@@ -161,6 +170,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='PK') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: ''};
       this.GameHistoryList = [
         {
           'Winner': 'Player A',
@@ -170,6 +180,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='JK') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: { Type: '', Color: '', Suite: ''}};
       this.GameHistoryList = [
         {
           'Winner': '7',
@@ -183,6 +194,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='BC') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: '', PlayerAScore: '', PlayerBScore: ''};
       this.GameHistoryList = [
         {
           'Winner': 'Player',
@@ -194,6 +206,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='KR') {
+      this.GameHistoryDetails = { Winner: '', WinningHand: { Hand: '', Color: ''}};
       this.GameHistoryList = [
         {
           'Winner': 'Diamond',
@@ -206,6 +219,7 @@ export class PopupComponent implements OnInit {
     }
 
     if (this.GameCode=='CQ') {
+      this.GameHistoryDetails = { Winner: ''};
       this.GameHistoryList = [
         {
           'Winner': 'Player 1'
