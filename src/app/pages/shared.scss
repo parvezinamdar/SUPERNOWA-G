@@ -20,7 +20,7 @@
         opacity: 0;
    }
  }
- .button {
+ .btn {
     background: linear-gradient(180deg, #33416C -0.64%, rgba(51, 65, 108, 0) 116.6%);
     padding: 5px 10px 5px 10px;
     border: 0;
@@ -87,9 +87,6 @@
     font-size: 1rem;
     color: #91FDD0;
  }
- .agent-logo {
-    bottom: 10px; right: 10px;
- }
  .game-details {
     font-size: 8px;
     z-index: 999;
@@ -106,7 +103,28 @@
  .mobile.show {
     display: block;
  }
+ .agent-logo {
+   bottom: 5px;
+   right: 5px;
+   z-index: 999;
+
+   img {
+      width: 100px;
+   }
+}
+
  @media (min-width: 768px) {
+   .agent-logo {
+      bottom: 10px;
+      right: 10px;
+      z-index: 999;
+   
+      img {
+         width: 150px;
+      }
+   }
+   
+
     .mobile {
         display: none !important;
    }
@@ -207,7 +225,7 @@
        }
    }
  }
- .h-25 .button {
+ .h-25 .btn {
     min-height: 30px!important;
  }
  .blue {
@@ -322,11 +340,11 @@
  .left .row {
     transform: translateX(5px);
  }
- .left .row .col:first-child .button {
+ .left .row .col:first-child .btn {
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
  }
- .left .row .col:last-child .button {
+ .left .row .col:last-child .btn {
     border: 0;
     background: none!important;
  
@@ -370,27 +388,27 @@
        background: linear-gradient(179.55deg, #A80D86 -2.77%, rgba(51, 65, 108, 0) 87.69%);
     }
  }
-.left .row .col-12 .button::after {
+.left .row .col-12 .btn::after {
    width: 500px;
 }
-.left .row .col-6 .button::after {
+.left .row .col-6 .btn::after {
   width: 295px;
 }
-.left .row .col-4 .button::after {
+.left .row .col-4 .btn::after {
   width: 250px;
 }
-.left .row .col-3 .button::after {
+.left .row .col-3 .btn::after {
  width: 200px;
 }
 
  .right .row {
     transform: translateX(-5px);
  }
- .right .row .col:last-child .button {
+ .right .row .col:last-child .btn {
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
  }
- .right .row .col:first-child .button {
+ .right .row .col:first-child .btn {
     border: 0;
     background: none!important;
  
@@ -438,16 +456,16 @@
        background: linear-gradient(179.55deg, #A80D86 -2.77%, rgba(51, 65, 108, 0) 87.69%);
     }
  }
-.right .row .col-12 .button::after {
+.right .row .col-12 .btn::after {
     width: 520px;
  }
-.right .row .col-6 .button::after {
+.right .row .col-6 .btn::after {
    width: 295px;
 }
-.right .row .col-4 .button::after {
+.right .row .col-4 .btn::after {
    width: 270px;
 }
-.right .row .col-3 .button::after {
+.right .row .col-3 .btn::after {
   width: 220px;
 }
  .chip {

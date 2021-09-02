@@ -83,7 +83,6 @@ export class DragontigerComponent implements OnInit {
     // console.log(buttons);
 
     buttons.forEach(el => el.addEventListener('click', event => {
-      console.log("Clicked");
       buttons.forEach(el => el.classList.remove("active"));
       el.classList.add("active");
       this.selected = "true";

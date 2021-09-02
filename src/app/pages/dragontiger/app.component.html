@@ -173,15 +173,15 @@
              </div>
           </div>
 
-          <div class="bottom overflow-hidden" style="margin-top: -20px; border: 1.5px solid var(--green); background: #101421; border-radius: 20px;">
+          <div class="bottom overflow-hidden" style="margin-top: -10px; border: 1.5px solid var(--green); background: #101421; border-radius: 20px;">
              <div class="row">
                 <div class="col p-1">
-                   <div class="btn button {{mode == 'dragon'? 'dragon': ''}}" (click)="mode='dragon'">
+                   <div class="btn {{mode == 'dragon'? 'dragon': ''}}" (click)="mode='dragon'">
                      <p><img src="./assets/images/dragon.svg"> Dragon</p>
                    </div>
                 </div>
                 <div class="col p-1">
-                   <div class="btn button {{mode == 'tiger'? 'tiger': ''}}" (click)="mode='tiger'">
+                   <div class="btn {{mode == 'tiger'? 'tiger': ''}}" (click)="mode='tiger'">
                      <p><img src="./assets/images/tiger.svg"> Tiger</p>
                    </div>
                 </div>

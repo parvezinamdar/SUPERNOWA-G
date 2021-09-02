@@ -33,7 +33,7 @@
  <div class="col-12 mobile-dial mobile hide" style="padding-bottom: 70vw; overflow: hidden;">
     <div style="position: fixed; overflow: hidden; z-index: 9999999999; bottom: 5vw; transform: scale(1.2); height: 48vw;margin-left: auto;margin-right: auto;left: 0;right: 0;">
        <img src="../assets/images/dial.png" class=" w-100 h-100 position-absolute" style="transform: scale(1.05); left: 0px; right: 0px; bottom: 0px;">
-       <ul class="circle-container mobile" style="z-index: 999;">
+       <ul class="circle-container mobile" style="z-index: 9;">
          <li class="c1">500</li>
          <li class="c2">1000</li>
          <li class="c3">5000</li>
@@ -48,21 +48,30 @@
          <li class="c12">100K</li>
       </ul>
 
-       <img src="../assets/images/triangle.svg" style="position: absolute; top: 0px; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+       <img src="../assets/images/triangle.svg" style="position: absolute; top: 10px; left: 0; right: 0; margin-left: auto; margin-right: auto;">
 
        <div style="overflow: hidden; text-align: center; position: absolute; left: 0; right: 0; top: 50%; width: 50%; margin: auto; height: 100%; border: 1.5px solid #92FFD1; border-radius: 50%; background: #0474B5; box-shadow: inset 0px 12px 12px rgba(0, 0, 0, 0.5);">
-         <div *ngIf="betState == null" class="row" style="font-family: MATROSKA; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 50px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
-            <span class="col-12" (click)="placeBet()" id="betPlaceBtn" style="z-index: 99999; pointer-events: all; height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Bet</span>
+
+         <div *ngIf="betState == null">
+            <div  class="row" style="font-family: MATROSKA; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 50px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
+               <span class="col-12" (click)="placeBet()" id="betPlaceBtn" style="z-index: 999; pointer-events: all; height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Bet</span>
+            </div>
+            <div class="row" style="font-family: MATROSKA;height: 50px;text-transform: uppercase;">
+               <span class="col-12 cancel" style="z-index: 9; pointer-events: all; background: url(../assets/images/button-redbg.png); height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Cancel</span>
+            </div>
          </div>
-         <div *ngIf="betState == 'loading'" class="row" style="font-family: MATROSKA; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 50px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
+         <div *ngIf="betState == 'loading'" style="font-family: MATROSKA; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 100px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
            <div class="spinner-border text-light"></div>
          </div>
-         <div *ngIf="betState == 'placed'" class="row" style="font-family: MATROSKA; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 50px; display: flex; justify-content: center; align-items: center;">
-              <span class="col-12" style=" height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Bet <br> Placed</span>
+         <div *ngIf="betState == 'placed'">
+            <div class="row" style="font-family: MATROSKA; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 50px; display: flex; justify-content: center; align-items: center;">
+               <span class="col-12" style=" height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Bet <br> Placed</span>
+            </div>
+            <div class="row" style="font-family: MATROSKA;height: 50px;text-transform: uppercase;">
+               <span class="col-12 cancel" style="z-index: 9; pointer-events: all; background: url(../assets/images/button-redbg.png); height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Cancel</span>
+            </div>
          </div>
-         <div class="row" style="font-family: MATROSKA; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 50px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
-            <span class="col-12 cancel" style="z-index: 99999; pointer-events: all; background: url(../assets/images/button-redbg.png); height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Cancel</span>
-         </div>
+         
        </div>
     </div>
  </div>
