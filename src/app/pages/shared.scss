@@ -4,6 +4,7 @@
  *::-webkit-scrollbar {
     display: none;
  }
+
  .content {
     overflow-x: hidden;
     max-width: 1440px;
@@ -46,10 +47,10 @@
  
     &:hover {
        background: #036299 !important;
-       border: 2px solid var(--green);
-       box-shadow: inset 0px 12px 12px rgba(11, 11, 11, 0.4);
+      //  outline: 2px solid var(--green);
+       box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px var(--green);
        font-weight: bold;
-       padding: 2px 7px 2px 7px;
+       padding: 5px 10px 5px 10px;
  
        p {
           color: var(--green);
@@ -59,8 +60,8 @@
  
     &.active {
        background: #036299!important;
-       border: 2px solid var(--green);
-       box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%);
+      //  outline: 2px solid var(--green);
+       box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px var(--green);
        font-weight: bold;
        padding: 2px 7px 2px 7px;
     }
@@ -363,8 +364,8 @@
     &:hover, &.active {
        &:after {
           background: #036299 !important;
-          border: 2px solid var(--green);
-          box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%);
+         //  outline: 2px solid var(--green);
+          box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px var(--green);
        }
     }
  
@@ -427,8 +428,8 @@
     &:hover, &.active {
        &:after {
           background: #036299 !important;
-          border: 2px solid var(--green);
-          box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%);
+         //  outline: 2px solid var(--green);
+          box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px var(--green);
        }
     }
  
@@ -542,7 +543,7 @@
 
  .score {
     text-align: center;
-    color: #D90020!important;
+    color: white!important;
  }
 
  .betResult .col-6, .betResult .d-flex {

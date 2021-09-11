@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ConstantService } from 'src/app/services/constant.service';
+import { Subscription } from 'rxjs';
 import $ from "jquery";
 
 @Component({
@@ -13,15 +15,21 @@ export class BetDialComponent implements OnInit {
 
   quickBet = false;
 
+  stake: number;
+  subscription: Subscription;
+
+  constructor(private data: ConstantService) {}
+
   placeBet() {
     this.betState = "loading";
     this.selected = "false";
-    setTimeout(() => { this.betState = "placed"; }, 1000);
+    new window.bootstrap.Toast(document.getElementById('success')).show();
+    setTimeout((el) => { this.betState = null; }, 1000);
   }
 
-  constructor() {}
-
   ngOnInit(): void {
+
+    this.subscription = this.data.currentStake.subscribe(stake => this.stake = stake)
 
     let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
@@ -29,7 +37,7 @@ export class BetDialComponent implements OnInit {
 
     var rotation = 0;
 
-    $(document).on("change", "#flexSwitchCheckChecked", () => {
+    $(document).on("change", "#flexSwitchCheckChecked", (el) => {
       if (document.querySelector("#flexSwitchCheckChecked:checked")) {
         if (!sessionStorage.getItem("quickBet")) {
           new window.bootstrap.Modal(document.getElementById('popModalDesktop')).show();
@@ -51,7 +59,7 @@ export class BetDialComponent implements OnInit {
       }
     });
 
-    $(document).on("click", ".mobile.player-controls .button", () => {
+    $(document).on("click", ".mobile.player-controls .button", (el) => {
       if (this.quickBet) {
         alert("Bet placed successfully!")
       } else {
@@ -61,7 +69,7 @@ export class BetDialComponent implements OnInit {
       }
     });
 
-    $(document).on("click", ".cancel", function() {
+    $(document).on("click", ".cancel", (el) => {
       $(".mobile.player-controls").fadeIn();
       $(".tray").fadeIn();
       $(".mobile-dial").fadeOut();
@@ -70,7 +78,7 @@ export class BetDialComponent implements OnInit {
     let $first = $('.desktop.circle-container li:first');
     let $last = $('.desktop.circle-container li:last');
 
-    $(document).on("click", ".arrow-left", function() {
+    $(document).on("click", ".arrow-left", (el) => {
       rotation += 30;
       $(".desktop.circle-container").css({'transform' : 'scale(0.9) rotate('+ rotation +'deg)'});
       var $next;
@@ -78,9 +86,10 @@ export class BetDialComponent implements OnInit {
       $next = $selected.prev('li').length > 0 ? $selected.prev('li') : $last;
       $selected.removeClass("active");
       $next.addClass('active');
+      this.data.changeStake(parseInt($next.attr("value")));
     });
 
-    $(document).on("click", ".arrow-right", function() {
+    $(document).on("click", ".arrow-right", (el) => {
       rotation -= 30;
       $(".desktop.circle-container").css({'transform' : 'scale(0.9) rotate('+ rotation +'deg)'});
       var $prev;
@@ -88,90 +97,103 @@ export class BetDialComponent implements OnInit {
       $prev = $selected.next('li').length ? $selected.next('li') : $first;
       $selected.removeClass("active");
       $prev.addClass('active');
+      this.data.changeStake(parseInt($prev.attr("value")));
     });
 
-    $(document).on("click", ".c10", function() {
+    $(document).on("click", ".c10", (el) => {
       rotation = 0;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(0deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c11", function() {
+    $(document).on("click", ".c11", (el) => {
       rotation = -30;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-30deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c12", function() {
+    $(document).on("click", ".c12", (el) => {
       rotation = -60;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-60deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c1", function() {
+    $(document).on("click", ".c1", (el) => {
       rotation = -90;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-90deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c2", function() {
+    $(document).on("click", ".c2", (el) => {
       rotation = -120;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-120deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c3", function() {
+    $(document).on("click", ".c3", (el) => {
       rotation = -150;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-150deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c4", function() {
+    $(document).on("click", ".c4", (el) => {
       rotation = -180;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-180deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c5", function() {
+    $(document).on("click", ".c5", (el) => {
       rotation = -210;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-210deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c6", function() {
+    $(document).on("click", ".c6", (el) => {
       rotation = -240;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-240deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c7", function() {
+    $(document).on("click", ".c7", (el) => {
       rotation = -270;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-270deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c8", function() {
+    $(document).on("click", ".c8", (el) => {
       rotation = -300;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-300deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
 
-    $(document).on("click", ".c9", function() {
+    $(document).on("click", ".c9", (el) => {
       rotation = -330;
       $(`.${device}.circle-container`).css({'transform': 'scale(0.9) rotate(-330deg)'});
       $(`.${device}.circle-container li`).removeClass("active");
-      $(this).addClass("active");
+      $(el.target).addClass("active");
+      this.data.changeStake(parseInt($(el.target).attr("value")));
     });
   }
 

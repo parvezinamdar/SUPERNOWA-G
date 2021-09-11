@@ -29,6 +29,7 @@ import { KingraceComponent } from './pages/kingrace/app.component';
 import { PattiplayerComponent } from './pages/pattiplayer/app.component';
 import { CasinoqueenComponent } from './pages/casinoqueen/app.component';
 import { PokerComponent } from './pages/poker/app.component';
+import { HowToPlayComponent } from './component/how-to-play/how-to-play.component';
 
 const routes: Routes = [
   {
@@ -145,7 +146,8 @@ const routes: Routes = [
     KingraceComponent,
     PattiplayerComponent,
     CasinoqueenComponent,
-    PokerComponent
+    PokerComponent,
+    HowToPlayComponent
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
        <img (click)="stake > 1 ? stake = stake - 1 : 1" src="../assets/images/icon-minus.svg" style="cursor:pointer; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;">
        <div class="text-center mx-3">
           <p class="text-white m-0">Stake</p>
-          <p class="m-0">{{stake}}</p>
+          <input type="number" class="stake" min="1" [value]="stake">
        </div>
        <img (click)="stake = stake + 1" src="../assets/images/icon-plus.svg" style="cursor:pointer; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;">
     </div>
@@ -25,7 +25,7 @@
    <div class="d-flex my-auto active">
       <img (click)="stake > 1 ? stake = stake - 1 : 1" src="../assets/images/icon-minus.svg" style="cursor:pointer; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;width: 20px; height: 20px;">
        <div class="text-center text-white mx-3">
-          Stake: {{stake}}
+          Stake: <input type="number" class="stake" min="1" [value]="stake">
        </div>
        <img (click)="stake = stake + 1" src="../assets/images/icon-plus.svg" style="cursor:pointer; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); border-radius: 50%;width: 20px; height: 20px;">
    </div>

@@ -1,11 +1,21 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ConstantService {
-  
-  constructor() {}
+
+  // stake = 123456;
+
+  private stakeSource = new BehaviorSubject(123456);
+  currentStake = this.stakeSource.asObservable();
+
+  constructor() { }
+
+  changeStake(stake: number) {
+    this.stakeSource.next(stake)
+  }
 
   gameList: any = {
     AB: {

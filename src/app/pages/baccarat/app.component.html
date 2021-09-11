@@ -20,9 +20,11 @@
          </div>
 
          <app-action-tray></app-action-tray>
+
+<app-how-to-play></app-how-to-play>
    
          <div class="position-absolute agent-logo">
-            <img src="../assets/images/partner.svg">
+            <img src="../assets/images/Logo.svg">
          </div>
       </div>
 
@@ -32,7 +34,10 @@
          </div>
          <div class="row betResult" *ngIf="state == 'bet' || state == 'open'">
             <div class="col-6 d-flex justify-content-end position-relative px-2 border-right">
-               <p>Player</p>
+               <div>
+                  <p>Player</p>
+                  <p class="score">0</p>
+               </div>
                <div class="mx-1 d-flex">
                   <div class="flip-card">
                      <div class="flip-card-inner">
@@ -67,7 +72,10 @@
                </div>
             </div>
             <div class="col-6 d-flex justify-content-end position-relative flex-row-reverse px-2">
-               <p>Banker</p>
+               <div>
+                  <p>Banker</p>
+                  <p class="score">0</p>
+               </div>
                <div class="mx-1 d-flex">
                   <div class="flip-card" style="transform: rotate(90deg);margin-right: 10px;">
                      <div class="flip-card-inner">
@@ -116,19 +124,19 @@
                   <div class="col col-4 p-1">
                       <div class="btn button disabled">
                           <p>Player</p>
-                          <p class="points">o.oo</p>
+                          <p class="points">12.34</p>
                       </div>
                   </div>
                   <div class="col col-4 p-1">
                      <div class="btn button disabled">
                          <p>Banker</p>
-                         <p class="points">o.oo</p>
+                         <p class="points">12.34</p>
                      </div>
                  </div>
                   <div class="col col-4 p-1">
                      <div class="btn button disabled">
                         <p>Tie</p>
-                        <p class="points">o.oo</p>
+                        <p class="points">12.34</p>
                      </div>
                   </div>
                 </div>
@@ -159,14 +167,14 @@
                    <div class="col col-6 p-1">
                       <div (click)="AddBet('Player A', 4.15)" class="btn button">
                          <p>Score 1-4</p>
-                         <p class="points">o.oo</p>
+                         <p class="points">12.34</p>
                          <div class="chip">2</div>
                       </div>
                    </div>
                    <div class="col col-6 p-1">
                       <div (click)="AddBet('Player A', 4.15)" class="btn button">
                          <p>Score 5-6</p>
-                         <p class="points">o.oo</p>
+                         <p class="points">12.34</p>
                          <div class="chip">2</div>
                       </div>
                    </div>
@@ -175,21 +183,21 @@
                    <div (click)="AddBet('Player A', 4.15)" class="col col-4 p-1">
                       <div class="btn button">
                          <p>Score 7</p>
-                         <p class="points">o.oo</p>
+                         <p class="points">12.34</p>
                          <div class="chip">2</div>
                       </div>
                    </div>
                    <div class="col col-4 p-1">
                       <div (click)="AddBet('Player A', 4.15)" class="btn button">
                          <p>Score 8</p>
-                         <p class="points">o.oo</p>
+                         <p class="points">12.34</p>
                          <div class="chip">2</div>
                       </div>
                    </div>
                    <div class="col col-4 p-1">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button">
                         <p>Score 9</p>
-                        <p class="points">o.oo</p>
+                        <p class="points">12.34</p>
                         <div class="chip">2</div>
                      </div>
                   </div>
@@ -206,7 +214,7 @@
                 <div class="col p-1">
                    <div (click)="AddBet('Player A', 4.15)" class="btn button disabled">
                       <p>Akbar</p>
-                      <p class="points">o.oo</p>
+                      <p class="points">12.34</p>
                    </div>
                 </div>
                 <div class="col p-1">
@@ -226,7 +234,7 @@
                 <div class="col p-1">
                    <div (click)="AddBet('A', 1.50)" class="btn button blue">
                       <p>Back</p>
-                      <p class="points">o.oo</p>
+                      <p class="points">12.34</p>
                    </div>
                 </div>
                 <div class="col p-1">
@@ -246,7 +254,7 @@
                <div class="col p-1">
                   <div (click)="AddBet('Player A', 4.15)" class="btn button pink">
                      <p>Lay</p>
-                     <p class="points">o.oo</p>
+                     <p class="points">12.34</p>
                   </div>
                </div>
                <div class="col p-1">
@@ -269,21 +277,21 @@
                 <div class="col p-1">
                    <div (click)="AddBet('Player A', 4.15)" class="btn button">
                       <p>Even</p>
-                      <p class="points">o.oo</p>
+                      <p class="points">12.34</p>
                       <div class="chip">2</div>
                    </div>
                 </div>
                 <div class="col p-1">
                    <div (click)="AddBet('Player A', 4.15)" class="btn button">
                       <p>Odd</p>
-                      <p class="points">o.oo</p>
+                      <p class="points">12.34</p>
                       <div class="chip">2</div>
                    </div>
                 </div>
                 <div class="col p-1">
                   <div (click)="AddBet('Player A', 4.15)" class="btn button">
                      <p>Red Suit</p>
-                     <p class="points">o.oo</p>
+                     <p class="points">12.34</p>
                      <div class="chip">2</div>
                   </div>
                </div>
@@ -292,21 +300,21 @@
                 <div class="col p-1">
                    <div (click)="AddBet('Player A', 4.15)" class="btn button">
                       <p>Black Suit</p>
-                      <p class="points">o.oo</p>
+                      <p class="points">12.34</p>
                       <div class="chip">2</div>
                    </div>
                 </div>
                 <div class="col p-1">
                    <div (click)="AddBet('Player A', 4.15)" class="btn button">
                       <p>Below 7</p>
-                      <p class="points">o.oo</p>
+                      <p class="points">12.34</p>
                       <div class="chip">2</div>
                    </div>
                 </div>
                 <div class="col p-1">
                   <div (click)="AddBet('Player A', 4.15)" class="btn button">
                      <p>Above 7</p>
-                     <p class="points">o.oo</p>
+                     <p class="points">12.34</p>
                      <div class="chip">2</div>
                   </div>
                </div>
@@ -315,7 +323,7 @@
                <div class="col p-1">
                  <div (click)="AddBet('Player A', 4.15)" class="btn button">
                     <p>At 7</p>
-                    <p class="points">o.oo</p>
+                    <p class="points">12.34</p>
                     <div class="chip">2</div>
                  </div>
               </div>

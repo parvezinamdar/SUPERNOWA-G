@@ -1,3 +1,16 @@
+
+ /* Chrome, Safari, Edge, Opera */
+ input::-webkit-outer-spin-button,
+ input::-webkit-inner-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+ }
+ 
+ /* Firefox */
+ input[type=number] {
+   -moz-appearance: textfield;
+ }
+
 .toolbar div, .toolbar p {
     font-family: Matroska;
     color: var(--green);
@@ -28,4 +41,14 @@
 #flexSwitchCheckChecked:checked {
     background-color: #036BA6!important;
 }
-    
+
+
+.stake {
+    background: none!important;
+    text-align: center;
+    border: 0px;
+    font-family: Matroska;
+    color: var(--green);
+    max-width: 7rem;
+    outline: 0px;
+  }
