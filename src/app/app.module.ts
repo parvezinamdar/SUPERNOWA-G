@@ -2,6 +2,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+import { DataTablesModule } from "angular-datatables";
+
 import { AppComponent } from './app.component';
 import { GamesComponent } from './pages/games/games.component';
 import { VideoplayerComponent } from './component/videoplayer/videoplayer.component';
@@ -30,6 +32,7 @@ import { PattiplayerComponent } from './pages/pattiplayer/app.component';
 import { CasinoqueenComponent } from './pages/casinoqueen/app.component';
 import { PokerComponent } from './pages/poker/app.component';
 import { HowToPlayComponent } from './component/how-to-play/how-to-play.component';
+import { TransactionReportComponent } from './pages/transaction-report/transaction-report.component';
 
 const routes: Routes = [
   {
@@ -116,6 +119,11 @@ const routes: Routes = [
     path: 'PK',
     component: PokerComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'report',
+    component: TransactionReportComponent,
+    pathMatch: 'full'
   }
 ];
 
@@ -147,11 +155,13 @@ const routes: Routes = [
     PattiplayerComponent,
     CasinoqueenComponent,
     PokerComponent,
-    HowToPlayComponent
+    HowToPlayComponent,
+    TransactionReportComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    DataTablesModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

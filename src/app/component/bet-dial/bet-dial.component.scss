@@ -276,14 +276,26 @@
    opacity: 0.9!important;
  }
 
+ .arrow {
+  z-index: 9999; cursor: pointer; pointer-events: all;position: absolute; 
+ }
+
+ .arrow.left {
+  left: 10px; right: auto; bottom: 22px;
+ }
+
+ .arrow.right {
+  left: auto; right: 10px; bottom: 20px;
+ }
+
  .true {
-   .circle-container, .arrow-left, .arrow-right, #betPlaceBtn {
+   .circle-container, .arrow, #betPlaceBtn {
     opacity: 1;
    }
  }
 
  .false {
-  .circle-container li:not(.active), .arrow-left, .arrow-right, #betPlaceBtn {
+  .circle-container li:not(.active), .arrow, #betPlaceBtn {
     opacity: 0.3;
    }
  }
@@ -345,3 +357,13 @@
 //     transform:scale(0.9);height: 230px;overflow: hidden;margin: auto;bottom: 0; position: absolute;left: 0;right: 0;margin-left: auto;margin-right: auto;
 //   }
 // }
+
+.new li, .new .arrow, .new #betPlaceBtn {
+  opacity: 0.5!important;
+  pointer-events: none!important;
+}
+
+.open li, .open .arrow, .open #betPlaceBtn {
+  opacity: 0.5!important;
+  pointer-events: none!important;
+}

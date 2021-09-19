@@ -47908,6 +47908,226 @@ const VERSION = new _angular_core__WEBPACK_IMPORTED_MODULE_0__.Version('12.2.1')
 
 /***/ }),
 
+/***/ 9290:
+/*!***************************************************************!*\
+  !*** ./node_modules/angular-datatables/__ivy_ngcc__/index.js ***!
+  \***************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DataTableDirective": () => (/* reexport safe */ _src_angular_datatables_directive__WEBPACK_IMPORTED_MODULE_0__.DataTableDirective),
+/* harmony export */   "DataTablesModule": () => (/* reexport safe */ _src_angular_datatables_module__WEBPACK_IMPORTED_MODULE_1__.DataTablesModule)
+/* harmony export */ });
+/* harmony import */ var _src_angular_datatables_directive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./src/angular-datatables.directive */ 441);
+/* harmony import */ var _src_angular_datatables_module__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./src/angular-datatables.module */ 8463);
+/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://raw.githubusercontent.com/l-lin/angular-datatables/master/LICENSE
+ */
+/**
+ * @module
+ * @description
+ * Entry point from which you should import all public library APIs.
+ */
+
+
+
+
+
+/***/ }),
+
+/***/ 441:
+/*!******************************************************************************************!*\
+  !*** ./node_modules/angular-datatables/__ivy_ngcc__/src/angular-datatables.directive.js ***!
+  \******************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DataTableDirective": () => (/* binding */ DataTableDirective)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @angular/core */ 2316);
+/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://raw.githubusercontent.com/l-lin/angular-datatables/master/LICENSE
+ */
+
+
+
+var DataTableDirective = /** @class */ (function () {
+    function DataTableDirective(el, vcr, renderer) {
+        this.el = el;
+        this.vcr = vcr;
+        this.renderer = renderer;
+        /**
+         * The DataTable option you pass to configure your table.
+         */
+        this.dtOptions = {};
+    }
+    DataTableDirective.prototype.ngOnInit = function () {
+        var _this = this;
+        if (this.dtTrigger) {
+            this.dtTrigger.subscribe(function () {
+                _this.displayTable();
+            });
+        }
+        else {
+            this.displayTable();
+        }
+    };
+    DataTableDirective.prototype.ngOnDestroy = function () {
+        if (this.dtTrigger) {
+            this.dtTrigger.unsubscribe();
+        }
+        if (this.dt) {
+            this.dt.destroy(true);
+        }
+    };
+    DataTableDirective.prototype.displayTable = function () {
+        var _this = this;
+        var self = this;
+        this.dtInstance = new Promise(function (resolve, reject) {
+            Promise.resolve(_this.dtOptions).then(function (dtOptions) {
+                // Using setTimeout as a "hack" to be "part" of NgZone
+                setTimeout(function () {
+                    // Assign DT properties here
+                    var options = {
+                        rowCallback: function (row, data, index) {
+                            if (dtOptions.columns) {
+                                var columns_1 = dtOptions.columns;
+                                // Filter columns with pipe declared
+                                var colsWithPipe = columns_1.filter(function (x) { return x.ngPipeInstance && !x.ngTemplateRef; });
+                                // Iterate
+                                colsWithPipe.forEach(function (el) {
+                                    var pipe = el.ngPipeInstance;
+                                    // find index of column using `data` attr
+                                    var i = columns_1.findIndex(function (e) { return e.data == el.data; });
+                                    // get <td> element which holds data using index
+                                    var rowFromCol = row.childNodes.item(i);
+                                    // Transform data with Pipe
+                                    var rowVal = $(rowFromCol).text();
+                                    var rowValAfter = pipe.transform(rowVal);
+                                    // Apply transformed string to <td>
+                                    $(rowFromCol).text(rowValAfter);
+                                });
+                                // Filter columns using `ngTemplateRef`
+                                var colsWithTemplate = columns_1.filter(function (x) { return x.ngTemplateRef && !x.ngPipeInstance; });
+                                colsWithTemplate.forEach(function (el) {
+                                    var _a = el.ngTemplateRef, ref = _a.ref, context = _a.context;
+                                    // get <td> element which holds data using index
+                                    var index = columns_1.findIndex(function (e) { return e.data == el.data; });
+                                    var cellFromIndex = row.childNodes.item(index);
+                                    // render onto DOM
+                                    // finalize context to be sent to user
+                                    var _context = Object.assign({}, context, context === null || context === void 0 ? void 0 : context.userData, {
+                                        adtData: data
+                                    });
+                                    var instance = self.vcr.createEmbeddedView(ref, _context);
+                                    self.renderer.appendChild(cellFromIndex, instance.rootNodes[0]);
+                                });
+                            }
+                            // run user specified row callback if provided.
+                            if (_this.dtOptions.rowCallback) {
+                                _this.dtOptions.rowCallback(row, data, index);
+                            }
+                        }
+                    };
+                    // merge user's config with ours
+                    options = Object.assign({}, dtOptions, options);
+                    _this.dt = $(_this.el.nativeElement).DataTable(options);
+                    resolve(_this.dt);
+                });
+            });
+        });
+    };
+    DataTableDirective.ctorParameters = function () { return [
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewContainerRef },
+        { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Renderer2 }
+    ]; };
+    DataTableDirective.propDecorators = {
+        dtOptions: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input }],
+        dtTrigger: [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input }]
+    };
+DataTableDirective.ɵfac = function DataTableDirective_Factory(t) { return new (t || DataTableDirective)(_angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewContainerRef), _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdirectiveInject"](_angular_core__WEBPACK_IMPORTED_MODULE_0__.Renderer2)); };
+DataTableDirective.ɵdir = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵɵdefineDirective"]({ type: DataTableDirective, selectors: [["", "datatable", ""]], inputs: { dtOptions: "dtOptions", dtTrigger: "dtTrigger" } });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_0__["ɵsetClassMetadata"](DataTableDirective, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Directive,
+        args: [{
+                selector: '[datatable]'
+            }]
+    }], function () { return [{ type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ElementRef }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.ViewContainerRef }, { type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Renderer2 }]; }, { dtOptions: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+        }], dtTrigger: [{
+            type: _angular_core__WEBPACK_IMPORTED_MODULE_0__.Input
+        }] }); })();
+    return DataTableDirective;
+}());
+
+
+
+
+/***/ }),
+
+/***/ 8463:
+/*!***************************************************************************************!*\
+  !*** ./node_modules/angular-datatables/__ivy_ngcc__/src/angular-datatables.module.js ***!
+  \***************************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "DataTablesModule": () => (/* binding */ DataTablesModule)
+/* harmony export */ });
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ 2316);
+/* harmony import */ var _angular_common__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/common */ 4364);
+/* harmony import */ var _angular_datatables_directive__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./angular-datatables.directive */ 441);
+/**
+ * @license
+ *
+ * Use of this source code is governed by an MIT-style license that can be
+ * found in the LICENSE file at https://raw.githubusercontent.com/l-lin/angular-datatables/master/LICENSE
+ */
+
+
+
+
+var DataTablesModule = /** @class */ (function () {
+    function DataTablesModule() {
+    }
+    DataTablesModule.forRoot = function () {
+        return {
+            ngModule: DataTablesModule
+        };
+    };
+DataTablesModule.ɵfac = function DataTablesModule_Factory(t) { return new (t || DataTablesModule)(); };
+DataTablesModule.ɵmod = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineNgModule"]({ type: DataTablesModule });
+DataTablesModule.ɵinj = /*@__PURE__*/ _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵdefineInjector"]({ imports: [[_angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule]] });
+(function () { (typeof ngDevMode === "undefined" || ngDevMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵsetClassMetadata"](DataTablesModule, [{
+        type: _angular_core__WEBPACK_IMPORTED_MODULE_1__.NgModule,
+        args: [{
+                imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule],
+                declarations: [_angular_datatables_directive__WEBPACK_IMPORTED_MODULE_0__.DataTableDirective],
+                exports: [_angular_datatables_directive__WEBPACK_IMPORTED_MODULE_0__.DataTableDirective]
+            }]
+    }], function () { return []; }, null); })();
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && _angular_core__WEBPACK_IMPORTED_MODULE_1__["ɵɵsetNgModuleScope"](DataTablesModule, { declarations: function () { return [_angular_datatables_directive__WEBPACK_IMPORTED_MODULE_0__.DataTableDirective]; }, imports: function () { return [_angular_common__WEBPACK_IMPORTED_MODULE_2__.CommonModule]; }, exports: function () { return [_angular_datatables_directive__WEBPACK_IMPORTED_MODULE_0__.DataTableDirective]; } }); })();
+    return DataTablesModule;
+}());
+
+
+
+
+/***/ }),
+
 /***/ 6562:
 /*!************************************************************!*\
   !*** ./node_modules/bootstrap/dist/js/bootstrap.bundle.js ***!

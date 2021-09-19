@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ConstantService } from 'src/app/services/constant.service';
 import { Subscription } from 'rxjs';
 import $ from "jquery";
@@ -12,13 +12,20 @@ export class BetDialComponent implements OnInit {
 
   @Input() selected: any;
   @Input() betState: any;
+  @Input() state: any;
 
   quickBet = false;
 
   stake: number;
-  subscription: Subscription;
+  stakeSubscription: Subscription;
 
   constructor(private data: ConstantService) {}
+
+  @Output() messageEvent = new EventEmitter<boolean>();
+
+  sendMessage() {
+    this.messageEvent.emit(this.quickBet);
+  }
 
   placeBet() {
     this.betState = "loading";
@@ -29,7 +36,7 @@ export class BetDialComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.subscription = this.data.currentStake.subscribe(stake => this.stake = stake)
+    this.stakeSubscription = this.data.currentStake.subscribe(stake => this.stake = stake)
 
     let isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
@@ -48,6 +55,7 @@ export class BetDialComponent implements OnInit {
          $(".arrow-right").css({"opacity": "0.5", "pointer-events": "none"});
          $(this).css("background-color", "#036BA6");
          this.quickBet = true;
+         this.sendMessage();
         }
       } else {
         $(".circle-container li.active").css({"opacity": "1"});
@@ -56,6 +64,7 @@ export class BetDialComponent implements OnInit {
         $(".arrow-right").css({"opacity": "1", "pointer-events": "all"});
         $(this).css("background-color", "#ACACAC");
         this.quickBet = false;
+        this.sendMessage();
       }
     });
 

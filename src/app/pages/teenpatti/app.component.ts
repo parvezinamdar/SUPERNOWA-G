@@ -13,6 +13,8 @@ export class TeenpattiComponent implements OnInit {
   selected = "false";
   @Input() betState = null;
 
+GameWinner = "JOKER";
+
   player = "Bet for";
   odds = null;
   IsOneClick = false;
@@ -37,12 +39,12 @@ export class TeenpattiComponent implements OnInit {
       if (this.timeLeft <= 60) {
         this.state = "new";
       }
-      if (this.timeLeft <= 60) {
+      if (this.timeLeft <= 50) {
         this.state = "bet";
       }
-      // if (this.timeLeft <= 20) {
-      //   this.state = "open";
-      // }
+      if (this.timeLeft <= 20) {
+        this.state = "open";
+      }
     }, 1000)
   }
 
@@ -56,9 +58,17 @@ export class TeenpattiComponent implements OnInit {
   GameCode: string;
   GameStatus: number = 1;
 
+quickBet = false;
+  receiveMessage($event) {
+    this.quickBet = $event
+  }
+
   AddBet(player, odds) {
     if (this.GameStatus === 1) {
-      if (this.IsOneClick) {
+      if (this.quickBet) {
+        this.player = player;
+        this.odds = odds;
+        new window.bootstrap.Toast(document.getElementById('success')).show();
         // this.ValidateBet();
       } else {
         this.player = player;

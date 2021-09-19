@@ -18,6 +18,11 @@ export class PopupComponent implements OnInit {
   GameCode: string;
   GameStatus: number = 1;
 
+quickBet = false;
+  receiveMessage($event) {
+    this.quickBet = $event
+  }
+
   state = "closed";
 
   SetHistoryCards(item) {

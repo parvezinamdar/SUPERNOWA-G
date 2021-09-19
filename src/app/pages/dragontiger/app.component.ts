@@ -13,6 +13,8 @@ export class DragontigerComponent implements OnInit {
   selected = "false";
   @Input() betState = null;
 
+GameWinner = "JOKER";
+
   player = "Bet for";
   odds = null;
   IsOneClick = false;
@@ -58,9 +60,17 @@ export class DragontigerComponent implements OnInit {
   GameCode: string;
   GameStatus: number = 1;
 
+quickBet = false;
+  receiveMessage($event) {
+    this.quickBet = $event
+  }
+
   AddBet(player, odds) {
     if (this.GameStatus === 1) {
-      if (this.IsOneClick) {
+      if (this.quickBet) {
+        this.player = player;
+        this.odds = odds;
+        new window.bootstrap.Toast(document.getElementById('success')).show();
         // this.ValidateBet();
       } else {
         this.player = player;

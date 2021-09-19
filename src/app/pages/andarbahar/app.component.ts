@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConstantService } from 'src/app/services/constant.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-andarbahar',
@@ -11,11 +12,12 @@ import { ConstantService } from 'src/app/services/constant.service';
 export class AndarbaharComponent implements OnInit {
   state = "new";
   selected = "false";
-  @Input() betState = null;
+  // @Input() betState = null;
+
+  GameWinner = "JOKER";
 
   player = "Bet for";
   odds = null;
-  IsOneClick = false;
 
   timeLeft: number = 60;
   interval: any;
@@ -25,7 +27,7 @@ export class AndarbaharComponent implements OnInit {
       if (this.timeLeft > 0) {
         this.timeLeft--;
       } else {
-        this.betState = null;
+        // this.betState = null;
         this.selected = "false";
         this.state = "new";
         const buttons = document.querySelectorAll('.button');
@@ -56,10 +58,17 @@ export class AndarbaharComponent implements OnInit {
   GameCode: string;
   GameStatus: number = 1;
 
+quickBet = false;
+  receiveMessage($event) {
+    this.quickBet = $event
+  }
+
   AddBet(player, odds) {
     if (this.GameStatus === 1) {
-      if (this.IsOneClick) {
-        // this.ValidateBet();
+      if (this.quickBet) {
+        this.player = player;
+        this.odds = odds;
+        new window.bootstrap.Toast(document.getElementById('success')).show();
       } else {
         this.player = player;
         this.odds = odds;

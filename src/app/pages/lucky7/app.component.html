@@ -5,6 +5,13 @@
       <div class="position-relative p-0">
          <app-videoplayer class="p-0"></app-videoplayer>
 
+<div *ngIf="state == 'open'" class="position-absolute w-100 h-100 top-0" style="z-index: 9999;">
+            <img src="/assets/images/confetti.gif">
+            <h4 class="who-wins position-absolute top-50 start-50 translate-middle">
+               WINNER {{GameWinner}}
+            </h4>
+         </div>
+
          <div class="game-details header d-flex row position-absolute top-0 w-100 m-auto py-1" style="background: #101421F2;">
             <div class="col-3 d-flex align-items-center text-uppercase p">Stake Limit: <span class="text-green">0 - 10</span></div>
             <div class="col-6 text-center text-uppercase">
@@ -34,7 +41,7 @@
          </div>
          <div class="row betResult" *ngIf="state == 'bet' || state == 'open'">
             <div class="col-12 d-flex justify-content-center position-relative px-2">
-               <div class="mx-1 d-flex">
+               <div class="mx-1 d-flex stack">
                   <div class="flip-card">
                      <div class="flip-card-inner">
                        <div class="flip-card-front">
@@ -161,7 +168,7 @@
           </div>
        </div>
       
-       <app-bet-dial [selected]="selected" ([betState])="betState"></app-bet-dial>
+       <app-bet-dial [selected]="selected" [state]="state" (messageEvent)="receiveMessage($event)"></app-bet-dial>
       </div>
 
    <app-popup></app-popup>

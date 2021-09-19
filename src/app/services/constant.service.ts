@@ -6,16 +6,28 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ConstantService {
 
-  // stake = 123456;
-
   private stakeSource = new BehaviorSubject(123456);
   currentStake = this.stakeSource.asObservable();
-
-  constructor() { }
 
   changeStake(stake: number) {
     this.stakeSource.next(stake)
   }
+
+  // GameStatus: any = {
+  //   0: 'New Game Starting',
+  //   1: 'Rates',
+  //   2: 'New Card Opening',
+  //   3: 'Winner'
+  // };
+
+  // private gameStatus = new BehaviorSubject(0);
+  // currentStatus = this.gameStatus.asObservable();
+
+  // changeStatus(status: number) {
+  //   this.gameStatus.next(status)
+  // }
+
+  constructor() { }
 
   gameList: any = {
     AB: {
@@ -82,15 +94,6 @@ export class ConstantService {
       'name': 'Casino Queen',
       'imagePath': '/assets/images/game.jpg'
     }
-  };
-
-  GameStatus: any = {
-    0: 'New Game Starting',
-    1: 'Rates',
-    2: 'New Card Opening',
-    3: 'Winner',
-    4: 'Game Over',
-    5: 'Cancelled',
   };
 
   defaultChipsSetting = [

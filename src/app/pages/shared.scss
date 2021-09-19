@@ -549,3 +549,21 @@
  .betResult .col-6, .betResult .d-flex {
    padding: 5px;
  }
+
+ .new .col, .new app-bet-slip {
+   opacity: 0.5!important;
+   pointer-events: none!important;
+}
+
+.open .col, .open app-bet-slip {
+   opacity: 0.5!important;
+   pointer-events: none!important;
+}
+
+.who-wins {
+   background: linear-gradient(to right, rgba(178, 135, 41, 0) 0%, #92FFD1 35%, #b2872978 50%, #92FFD1 65%, rgba(178, 135, 41, 0) 100%);
+}
+
+.stack {
+   max-width: 75%;
+}
