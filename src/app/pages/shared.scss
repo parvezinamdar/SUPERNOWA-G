@@ -196,22 +196,34 @@
  .flip-card-back {
     transform: rotateY(180deg);
  }
+
  .timerEl {
     top: 2.5rem;
     left: 10px;
     right: auto;
  
     .timer {
-       color: #92FFD1;
+      color: #92FFD1;
       background: linear-gradient(180deg, #132561 8.85%, #053755 100%);
       border: 1.5px solid #92FFD1;
       border-radius: 50%;
-       width: 30px;
-       height: 30px;
-       font-size: 15px;
-       line-height: 30px;
+      width: 30px;
+      height: 30px;
+      font-size: 15px;
+      line-height: 30px;
+      animation: breathe 1s ease-in-out infinite;
     }
  }
+
+ @keyframes breathe {
+   from {
+      box-shadow: 0px 0px 5px 2px#92FFD1;
+   }
+   to {
+      box-shadow: 0px 0px 5px 2px rgba(146, 255, 209, 0.5);
+   }
+}
+
  @media (min-width: 768px) {
     .timerEl {
         top: 3.5rem;

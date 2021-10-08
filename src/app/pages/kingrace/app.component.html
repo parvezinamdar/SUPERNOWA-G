@@ -6,7 +6,7 @@
          <app-videoplayer class="p-0"></app-videoplayer>
 
 <div *ngIf="state == 'open'" class="position-absolute w-100 h-100 top-0" style="z-index: 9999;">
-            <img src="/assets/images/confetti.gif">
+            <img src="/assets/images/confetti.gif" class="w-100">
             <h4 class="who-wins position-absolute top-50 start-50 translate-middle">
                WINNER {{GameWinner}}
             </h4>
@@ -35,7 +35,7 @@
          </div>
       </div>
 
-      <div class="game-details row w-100 m-auto py-1 justify-content-center bottom-0" style="background: linear-gradient(180deg, #101421 8.85%, #053755 100%);">
+      <div class="game-details row w-100 m-auto justify-content-center bottom-0" style="background: linear-gradient(180deg, #101421 8.85%, #053755 100%);">
          <div *ngIf="state == 'new'" class="text-center text-uppercase p-1 p-md-2 newGameText">
             New Game Starting
          </div>

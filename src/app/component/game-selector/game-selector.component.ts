@@ -24,6 +24,9 @@ export class GameSelectorComponent implements AfterViewInit {
   ngAfterViewInit(): void {
 
     this.games = new Swiper('.swiper-container', {
+        centeredSlides: true,
+        slideToClickedSlide: true,
+        loop: true,
         slidesPerView: 1.5,
         spaceBetween: 10,
         breakpoints: {
