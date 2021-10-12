@@ -24,7 +24,7 @@
  }
 
  .nav-tabs .nav-item {
-    font-family: Matroska;
+    font-family: BreulGroteskB;
     color: var(--green);
     font-size: 16px;
     }
@@ -32,9 +32,9 @@
     color: #8CEEC7;
     }
     .nav-tabs .nav-link.active {
-    border: 2px solid var(--green) !important;
-    border-bottom: 0px!important;
-    color: #101421;
+      border: 2px solid var(--green) !important;
+      border-bottom: 0px!important;
+      color: #101421;
     }
  
     .tab-content li div, #accordion li div {
@@ -45,7 +45,7 @@
        color: #C4C4C4;
        align-content: center;
        flex-wrap: wrap;
-       font-family: Matroska;
+       font-family: BreulGroteskB;
     }
     
     #quickBet ul, #gameResults ul {
@@ -76,7 +76,7 @@
     }
  
     .accordion button {
-       font-family: Matroska;
+       font-family: BreulGroteskB;
        color: black;
        font-size: 16px;
        background: none;

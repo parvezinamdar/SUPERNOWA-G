@@ -23,11 +23,13 @@ GameWinner = "JOKER";
   interval: any;
 
   startTimer() {
+    let count = 0;
     this.interval = setInterval(() => {
       if (this.timeLeft > 0) {
         this.timeLeft--;
+        count = count + 4.18;
+        document.getElementById("progress").setAttribute('stroke-dasharray', count+', 251.2');
       } else {
-        this.betState = null;
         this.selected = "false";
         this.state = "new";
         const buttons = document.querySelectorAll('.button');
@@ -38,12 +40,15 @@ GameWinner = "JOKER";
       // Sequence
       if (this.timeLeft <= 60) {
         this.state = "new";
+        document.getElementById("content").classList.remove("winner");
       }
       if (this.timeLeft <= 50) {
         this.state = "bet";
+        document.getElementById("content").classList.remove("winner");
       }
       if (this.timeLeft <= 20) {
         this.state = "open";
+        document.getElementById("content").classList.add("winner");
       }
     }, 1000)
   }
@@ -93,5 +98,9 @@ quickBet = false;
       el.classList.add("active");
       this.selected = "true";
     }));
+  }
+
+ngOnDestroy(){
+    clearInterval(this.interval);
   }
 }

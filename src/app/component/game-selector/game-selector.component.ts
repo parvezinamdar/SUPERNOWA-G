@@ -1,13 +1,16 @@
-import { Component, OnInit, AfterViewInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ConstantService } from 'src/app/services/constant.service';
-import Swiper, { Navigation } from 'swiper';
+
+import { SwiperComponent, SwiperDirective, SwiperConfigInterface,
+SwiperScrollbarInterface, SwiperPaginationInterface } from 'ngx-swiper-wrapper';
 
 @Component({
   selector: 'app-game-selector',
   templateUrl: './game-selector.component.html',
   styleUrls: ['./game-selector.component.scss']
 })
-export class GameSelectorComponent implements AfterViewInit {
+
+export class GameSelectorComponent implements OnInit {
 
   public keepOriginalOrder = (a, b) => a.key
 
@@ -17,24 +20,20 @@ export class GameSelectorComponent implements AfterViewInit {
 
   gameList: any;
 
+  public config: SwiperConfigInterface = {
+    centeredSlides: true,
+    loop: true,
+    observer: true,
+    spaceBetween: 10,
+    slideToClickedSlide: true,
+    slidesPerView: "auto",
+    watchSlidesVisibility: true,
+    loopedSlides: 9,
+    navigation: true
+  };
+
   ngOnInit(): void {
     this.gameList = this.data.gameList;
-  }
-
-  ngAfterViewInit(): void {
-
-    this.games = new Swiper('.swiper-container', {
-        centeredSlides: true,
-        slideToClickedSlide: true,
-        loop: true,
-        slidesPerView: 1.5,
-        spaceBetween: 10,
-        breakpoints: {
-          768: {
-            slidesPerView: 5,
-          }
-        }
-      });
   }
 
 }

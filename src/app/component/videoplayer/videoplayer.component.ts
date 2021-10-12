@@ -111,7 +111,8 @@ export class VideoplayerComponent implements OnInit {
         "style": {
             "displayMutedAutoplay": true,
             "width": "auto",
-            "height": "auto"
+            "height": "auto",
+            "controls": false
         },
         "metrics": {
             "accountId": "nanocosmos1",

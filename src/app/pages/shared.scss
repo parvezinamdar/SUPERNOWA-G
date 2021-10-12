@@ -13,12 +13,12 @@
     height: 100%;
  }
  .blink {
-    font-family: Matroska; background: #E51937; border-radius: 5px;
-    animation: blinker 1.5s linear infinite;
+   //  font-family: BreulGroteskB; background: #E51937; border-radius: 5px;
+    animation: blinker 2s linear infinite;
  }
  @keyframes blinker {
-    50% {
-        opacity: 0;
+   50% {
+      opacity: 0.25;
    }
  }
  .btn {
@@ -46,28 +46,26 @@
     }
  
     &:hover {
-       background: #036299 !important;
-      //  outline: 2px solid var(--green);
-       box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px var(--green);
+       background: rgba(237,0,255,.08)!important;
+       box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px #ed00ff;
        font-weight: bold;
        padding: 5px 10px 5px 10px;
  
        p {
-          color: var(--green);
+          color: #ed00ff;
           text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
        }
     }
  
     &.active {
-       background: #036299!important;
-      //  outline: 2px solid var(--green);
-       box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px var(--green);
+       background: rgba(237,0,255,.08)!important;
+       box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px #ed00ff;
        font-weight: bold;
        padding: 2px 7px 2px 7px;
     }
  }
  .points {
-    color: #D90020;
+    color: var(--green);
  }
  .player-controls.desktop {
     -webkit-transform: perspective(200) rotate3d(1, 0, 0, 15deg) translateY(-25px);
@@ -88,43 +86,45 @@
     font-size: 1rem;
     color: #91FDD0;
  }
- .game-details {
-    font-size: 8px;
-    z-index: 999;
- 
-    .timer {
-       font-size: 10px;
-    }
- 
-    img {
-       height: 30px;
-       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    }
- }
  .mobile.show {
     display: block;
  }
  .agent-logo {
-   bottom: 5px;
+   bottom: 10px;
    right: 5px;
    z-index: 999;
 
    img {
-      width: 100px;
+      width: 80px;
    }
 }
 
  @media (min-width: 768px) {
    .agent-logo {
-      bottom: 10px;
+      bottom: 15px;
       right: 10px;
       z-index: 999;
    
       img {
-         width: 150px;
+         width: 100px;
       }
    }
+
+   #animated {
+      width: 50px;
+   }
    
+   .game-details {
+      font-size: 14px;
+
+      .timer {
+         font-size: 20px;
+      }
+
+      img {
+         height: 40px !important;
+      }
+   }
 
     .mobile {
         display: none !important;
@@ -138,23 +138,15 @@
     .video-player {
         width: 60%;
    }
- 
-    .game-details {
-       font-size: 14px;
- 
-       .timer {
-          font-size: 20px;
-       }
- 
-       img {
-          height: 40px !important;
-       }
-    }
  }
  .disabled {
     pointer-events: none!important;
     background: linear-gradient(180deg, #082434 -0.64%, rgba(51, 65, 108, 0) 116.6%);
     opacity: 1.0;
+    font-family: BreulGroteskB;
+ }
+ .disabled p {
+    font-size: 18px;
  }
  .flip-card {
     background-color: transparent;
@@ -162,7 +154,7 @@
     height: 30px;
     perspective: 1000px;
     img {
-        border: 1px solid #92FFD1;
+      //   border: 1px solid #92FFD1;
         border-radius: 2px;
    }
  }
@@ -176,7 +168,7 @@
     width: 100%;
     height: 100%;
     text-align: center;
-    transition: transform 0.6s;
+    transition: transform 1.2s;
     transform-style: preserve-3d;
  }
  .flip-card:hover .flip-card-inner {
@@ -190,54 +182,46 @@
     backface-visibility: hidden;
  
     img {
-       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      box-shadow: 0px 0px 5px 0.5px #92ffd1;
     }
  }
  .flip-card-back {
     transform: rotateY(180deg);
  }
 
- .timerEl {
-    top: 2.5rem;
-    left: 10px;
-    right: auto;
+ .game-details {
+    margin-top: -15px!important;
+    font-size: 8px;
+    z-index: 999;
  
     .timer {
-      color: #92FFD1;
-      background: linear-gradient(180deg, #132561 8.85%, #053755 100%);
-      border: 1.5px solid #92FFD1;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      font-size: 15px;
-      line-height: 30px;
-      animation: breathe 1s ease-in-out infinite;
+       font-size: 10px;
     }
+ 
+    img {
+       height: 30px;
+       filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    }
+ }
+
+ .timer {
+   color: #92FFD1;
+   font-size: 32px;
+ }
+
+ #animated {
+   width: 35ypx;
  }
 
  @keyframes breathe {
    from {
-      box-shadow: 0px 0px 5px 2px#92FFD1;
+      box-shadow: 0 0 5px 0 #92ffd1 inset;
    }
    to {
-      box-shadow: 0px 0px 5px 2px rgba(146, 255, 209, 0.5);
+      box-shadow: 0 0 10px 0 #92ffd1 inset;
    }
 }
 
- @media (min-width: 768px) {
-    .timerEl {
-        top: 3.5rem;
-        left: auto;
-        right: 10px;
- 
-        .timer {
-          width: 50px;
-          height: 50px;
-          font-size: 25px;
-          line-height: 45px;
-       }
-   }
- }
  .h-25 .btn {
     min-height: 30px!important;
  }
@@ -374,10 +358,10 @@
     }
  
     &:hover, &.active {
+       box-shadow: none;
        &:after {
-          background: #036299 !important;
-         //  outline: 2px solid var(--green);
-          box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px var(--green);
+         background: rgba(237,0,255,.08)!important;
+         box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px #ed00ff;
        }
     }
  
@@ -438,10 +422,10 @@
     }
  
     &:hover, &.active {
+       box-shadow: none;
        &:after {
-          background: #036299 !important;
-         //  outline: 2px solid var(--green);
-          box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px var(--green);
+         background: rgba(237,0,255,.08)!important;
+         box-shadow: inset 0px 12px 12px rgb(11 11 11 / 40%), 0px 0px 0px 2px #ed00ff;
        }
     }
  
@@ -562,15 +546,15 @@
    padding: 5px;
  }
 
- .new .col, .new app-bet-slip {
-   opacity: 0.5!important;
-   pointer-events: none!important;
-}
+//  .new .col, .new app-bet-slip {
+//    opacity: 0.5!important;
+//    pointer-events: none!important;
+// }
 
-.open .col, .open app-bet-slip {
-   opacity: 0.5!important;
-   pointer-events: none!important;
-}
+// .open .col, .open app-bet-slip {
+//    opacity: 0.5!important;
+//    pointer-events: none!important;
+// }
 
 .who-wins {
    background: linear-gradient(to right, rgba(178, 135, 41, 0) 0%, #92FFD1 35%, #b2872978 50%, #92FFD1 65%, rgba(178, 135, 41, 0) 100%);

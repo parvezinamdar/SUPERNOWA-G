@@ -11,7 +11,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: repeat-x;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Inter', sans-serif;
     }
     .button {
     background: linear-gradient(180deg, #33416C -0.64%, rgba(51, 65, 108, 0) 116.6%);
@@ -87,7 +87,7 @@
     -webkit-transform: perspective(200) rotate3d(1, 0, 0, 15deg);
     }
     .toolbar div, .toolbar p {
-    font-family: Matroska;
+    font-family: BreulGroteskB;
     color: var(--green);
     font-size: 12px;
     line-height: 12px;
@@ -102,7 +102,7 @@
     .dropdown span {
     font-size: 12px;
     font-weight: bold;
-    font-family: 'Rubik'!important;
+    font-family: 'Inter'!important;
     vertical-align: text-bottom;
     }
  

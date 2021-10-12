@@ -28,6 +28,7 @@
     "ngx-swiper-wrapper": "^10.0.0",
     "rxjs": "~6.5.5",
     "slick-carousel": "^1.8.1",
+    "snapsvg": "^0.5.1",
     "swiper": "^6.8.4",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.4"

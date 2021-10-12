@@ -1,15 +1,14 @@
 <div id="popModalDesktop" tabindex="-1" class="modal fade" style="z-index: 99999999999;">
     <div class="modal-dialog modal-dialog-centered modal-lg">
        <div class="modal-content bg-transparent border-0">
-          <div class="modal-body p-0" style="box-shadow: 0px 30px 24px rgba(0, 0, 0, 0.6); background: #232A41F2; border: 2px solid #92ffd130; border-radius: 40px;">
+          <div class="modal-body p-0 rounded-3" style="background: #232A41F2;">
              <ul id="myTab" class="nav nav-tabs border-0">
-                <li role="presentation" class="nav-item col-4"><button id="quickBet-tab" data-bs-toggle="tab" data-bs-target="#quickBet" type="button" class="nav-link px-2 py-3 w-100 active" style="font-size: 14px;border: 2px solid transparent; border-bottom: 0px; border-top-left-radius: 40px; border-top-right-radius: 40px;">Quick Bet</button></li>
-                <li role="presentation" class="nav-item col-4"><button id="betSlips-tab" data-bs-toggle="tab" data-bs-target="#betSlips" type="button" class="nav-link px-2 py-3 mx-auto w-100" style="font-size: 14px;border: 2px solid transparent; border-bottom: 0px; border-top-left-radius: 40px; border-top-right-radius: 40px;">Bet Slips</button></li>
-                <li role="presentation" class="nav-item col-4"><button id="gameResults-tab" data-bs-toggle="tab" data-bs-target="#gameResults" type="button" class="nav-link px-2 py-3 w-100" style="font-size: 14px;border: 2px solid transparent; border-bottom: 0px; border-top-left-radius: 40px; border-top-right-radius: 40px;">Game Results</button></li>
+                <li role="presentation" class="nav-item col-4"><button id="quickBet-tab" data-bs-toggle="tab" data-bs-target="#quickBet" type="button" class="nav-link text-uppercase px-2 py-3 w-100 active" style="border: 2px solid transparent; border-bottom: 0px;">Quick Bet</button></li>
+                <li role="presentation" class="nav-item col-4"><button id="betSlips-tab" data-bs-toggle="tab" data-bs-target="#betSlips" type="button" class="nav-link text-uppercase px-2 py-3 mx-auto w-100" style="border: 2px solid transparent; border-bottom: 0px;">Bet Slips</button></li>
+                <li role="presentation" class="nav-item col-4"><button id="gameResults-tab" data-bs-toggle="tab" data-bs-target="#gameResults" type="button" class="nav-link text-uppercase px-2 py-3 w-100" style="border: 2px solid transparent; border-bottom: 0px;">Game Results</button></li>
              </ul>
              <div class="tab-content" style="margin-top: -1px;">
-                <div id="quickBet" class="tab-pane fade show active bg-white p-4" style="border: 2px solid #92FFD1; border-radius: 40px; border-top-left-radius: 0px;">
-                   <p style="color: #7B7B7B;">QuickBet mode is on! After single click on any selection, it will place your bet immediately. See all your bets on</p>
+                <div id="quickBet" class="tab-pane fade show active bg-white p-4 rounded-bottom" style="border: 2px solid #92FFD1;">
                    <ul class="row p-0 m-auto g-2">
                       <li class="col-3"><div>50</div></li>
                       <li class="col-3"><div>50</div></li>
@@ -18,13 +17,14 @@
                       <li class="col-3"><div>50</div></li>
                       <li class="col-3"><div>50</div></li>
                       <li class="col-3"><div>50</div></li>
-                      <li class="col-3"><div>50</div></li>
+                      <li class="col-3"><input type="number" placeholder="Custom" class="form-control h-100 w-100 text-white" style="background: linear-gradient(180deg, #025381 0%, #02466E 100%); box-shadow: inset 0px 12px 20px rgba(0, 0, 0, 0.5); border-radius: 20px;"></li>
                    </ul>
-                   <input type="number" placeholder="Custom Amount" class="form-control w-100 text-white p-4 mt-2" style="background: linear-gradient(180deg, #025381 0%, #02466E 100%); box-shadow: inset 0px 12px 20px rgba(0, 0, 0, 0.5); border-radius: 20px;">
-                   <p class="text-center my-2" style="color: #7B7B7B;">Quick Bet is active with Rs. 20 bet</p>
-                   <div class="module-border-wrap m-auto"><button class="btn save px-4" style="font-size: 20px; background: linear-gradient(180deg, #14BA9D 0%, #44E9BA 50%, #23C8A6 94.27%); border-radius: 40px; color: #0F6F56;">Save</button></div>
+                   <div class="form-check form-switch d-flex justify-content-center align-items-center mt-2" style="padding-right: 2rem; padding-left: 0px; position: relative;">
+                     <label for="flexSwitchCheckChecked" class="form-check-label me-2 text-dark">Save</label>
+                     <input type="checkbox" id="flexSwitchCheckChecked" class="form-check-input" style="background-color: #ACACAC; width: 2em; height: 1em; background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOC42OTE2NSIgY3k9IjgiIHI9IjgiIHRyYW5zZm9ybT0icm90YXRlKC0xODAgOC42OTE2NSA4KSIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyIiB4MT0iOC42OTE2NSIgeTE9Ii00Ljc2ODM3ZS0wNyIgeDI9IjguNjkxNjUiIHkyPSIxNiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTBDMkI3Ii8+CjxzdG9wIG9mZnNldD0iMC40OTQ3OTIiIHN0b3AtY29sb3I9IiM0NEYzRTgiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMkNGRkYyIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==); margin: 0px;">
+                  </div>
                 </div>
-                <div id="betSlips" class="tab-pane fade bg-white p-4" style="border: 2px solid #92FFD1; border-radius: 40px;">
+                <div id="betSlips" class="tab-pane fade bg-white p-4 rounded-bottom" style="border: 2px solid #92FFD1;">
                    <p class="text-dark">Your betting history is as follows:</p>
                    <table class="w-100">
                       <tr style="border-bottom: 2px solid black;">
@@ -65,14 +65,14 @@
                       </tr>
                    </table>
                 </div>
-                <div id="gameResults" class="tab-pane fade bg-white p-4" style="border: 2px solid #92FFD1; border-radius: 40px; border-top-right-radius: 0px;">
+                <div id="gameResults" class="tab-pane fade bg-white p-4 rounded-bottom" style="border: 2px solid #92FFD1;">
                   <ul class="row p-0 m-auto g-2">
                      <li class="col-2" *ngFor="let item of GameHistoryList">
                         <div (click)="SetHistoryCards(item)">{{item.Winner=='Player A'?'A':'B'}}</div>
                      </li>
                   </ul>
                    <div class="card w-100 border-0 text-center mt-4 result {{state}}" style="border-radius: 20px; background: linear-gradient(180deg, #015A8D 0%, #013F63 100%); box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.5);">
-                      <button type="button" class="btn-close" (click)="state = 'closed'" style="background: #92FFD1; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); color: black; border-radius: 50%; position: absolute; border: 2px solid #071C28; opacity: 1.0; width: 15px; height: 15px; font-size: 10px; line-height: 10px; font-family: Matroska; top: -5px; right: -5px;">X</button>
+                      <button type="button" class="btn-close" (click)="state = 'closed'" style="background: #92FFD1; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); color: black; border-radius: 50%; position: absolute; border: 2px solid #071C28; opacity: 1.0; width: 15px; height: 15px; font-size: 10px; line-height: 10px; font-family: BreulGroteskB; top: -5px; right: -5px;">X</button>
                       <div class="card-header" style="background: #92FFD1; background: #92FFD1; border-top-left-radius: 20px; border-top-right-radius: 20px;">
                          <p class="mb-0 text-dark fw-bold">{{CurrentGame}}</p>
                          <p class="mb-0 text-dark fw-bold">({{GameCode}}-2826577)</p>
@@ -433,7 +433,7 @@
                 </div>
              </div>
           </div>
-          <button type="button" data-bs-dismiss="modal" class="btn-close" style="background: #232A41; border: 2px solid #8EF6CB; color: #83E5BF; font-family: Matroska; border-radius: 50%; position: absolute; bottom: 0px; right: 0px; width: 24px; height: 24px; opacity: 1.0; line-height: 16px;">X</button>
+          <button type="button" data-bs-dismiss="modal" class="btn-close bg-white rounded-circle position-absolute" style="border: 2px solid #232A41; color: #232A41; font-family: BreulGroteskB; bottom: -10px; right: -10px; width: 24px; height: 24px; opacity: 1.0; line-height: 16px;"></button>
        </div>
     </div>
  </div>
@@ -441,13 +441,12 @@
  <div id="popModalMobile" tabindex="-1" class="modal fade" style="z-index: 99999999999;">
    <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content bg-transparent border-0">
-         <div class="modal-body p-0" style="border-radius: 20px; border: 3px solid #7CE7BC;overflow: hidden; background: white;">
+         <div class="modal-body p-0 bg-white overflow-hidden rounded-3" style="border: 3px solid #7CE7BC;">
             <div id="accordion" class="accordion accordion-flush">
                <div class="accordion-item">
                   <h2 class="accordion-header"><button type="button" data-bs-toggle="collapse" data-bs-target="#quickBet" class="accordion-button">Quick Bet</button></h2>
                   <div id="quickBet" class="accordion-collapse collapse show" data-bs-parent="#accordion">
                      <div class="accordion-body">
-                        <p style="color: #7B7B7B;">QuickBet mode is on! After single click on any selection, it will place your bet immediately. See all your bets on</p>
                         <ul class="row p-0 m-auto g-2">
                            <li class="col-3"><div>50</div></li>
                            <li class="col-3"><div>50</div></li>
@@ -455,12 +454,13 @@
                            <li class="col-3"><div>50</div></li>
                            <li class="col-3"><div>50</div></li>
                            <li class="col-3"><div>50</div></li>
+                           <li class="col-3"><div>50</div></li>
+                           <li class="col-3"><input type="number" placeholder="Custom" class="form-control h-100 w-100 text-white" style="background: linear-gradient(180deg, #025381 0%, #02466E 100%); box-shadow: inset 0px 12px 20px rgba(0, 0, 0, 0.5); border-radius: 20px;"></li>
                         </ul>
-                        <div class="position-relative mt-2">
-                           <input type="number" placeholder="Custom Amount" class="form-control w-100 text-white p-2" style="background: linear-gradient(180deg, #025381 0%, #02466E 100%); box-shadow: inset 0px 12px 20px rgba(0, 0, 0, 0.5); border-radius: 10px;">
-                           <img class="position-absolute" src="../assets/images/icon-save.svg" style="right: -10px; top: -5px;">
+                        <div class="form-check form-switch d-flex justify-content-center align-items-center mt-2" style="padding-right: 2rem; padding-left: 0px; position: relative;">
+                           <label for="flexSwitchCheckChecked" class="form-check-label me-2 text-dark">Save</label>
+                           <input type="checkbox" id="flexSwitchCheckChecked" class="form-check-input" style="background-color: #ACACAC; width: 2em; height: 1em; background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTciIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNyAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOC42OTE2NSIgY3k9IjgiIHI9IjgiIHRyYW5zZm9ybT0icm90YXRlKC0xODAgOC42OTE2NSA4KSIgZmlsbD0idXJsKCNwYWludDBfbGluZWFyKSIvPgo8ZGVmcz4KPGxpbmVhckdyYWRpZW50IGlkPSJwYWludDBfbGluZWFyIiB4MT0iOC42OTE2NSIgeTE9Ii00Ljc2ODM3ZS0wNyIgeDI9IjguNjkxNjUiIHkyPSIxNiIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPgo8c3RvcCBzdG9wLWNvbG9yPSIjMTBDMkI3Ii8+CjxzdG9wIG9mZnNldD0iMC40OTQ3OTIiIHN0b3AtY29sb3I9IiM0NEYzRTgiLz4KPHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjMkNGRkYyIi8+CjwvbGluZWFyR3JhZGllbnQ+CjwvZGVmcz4KPC9zdmc+Cg==); margin: 0px;">
                         </div>
-                        <p class="text-center my-2" style="color: #7B7B7B;">Quick Bet is active with Rs. 20 bet</p>
                      </div>
                   </div>
                </div>
@@ -520,7 +520,7 @@
                            </li>
                         </ul>
                         <div class="card w-100 border-0 text-center mt-4" style="border-radius: 20px; background: linear-gradient(180deg, #015A8D 0%, #013F63 100%); box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.5);">
-                           <button type="button" class="btn-close" style="background: #92FFD1; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); color: black; border-radius: 50%; position: absolute; border: 2px solid #071C28; opacity: 1.0; width: 15px; height: 15px; font-size: 10px; line-height: 10px; font-family: Matroska; top: -5px; right: -5px;">X</button>
+                           <button type="button" class="btn-close" style="background: #92FFD1; box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.4), inset 0px 1px 0px rgba(255, 255, 255, 0.3); color: black; border-radius: 50%; position: absolute; border: 2px solid #071C28; opacity: 1.0; width: 15px; height: 15px; font-size: 10px; line-height: 10px; font-family: BreulGroteskB; top: -5px; right: -5px;">X</button>
                            <div class="card-header" style="background: #92FFD1; background: #92FFD1; border-top-left-radius: 20px; border-top-right-radius: 20px;">
                               <p class="mb-0 text-dark fw-bold">Live Teen Patti</p>
                               <p class="mb-0 text-dark fw-bold">(ID - TP-2826577)</p>
@@ -543,7 +543,7 @@
                </div>
             </div>
          </div>
-         <button type="button" data-bs-dismiss="modal" class="btn-close" style="background: #232A41; border: 2px solid #8EF6CB; color: #83E5BF; font-family: Matroska; border-radius: 50%; position: absolute; bottom: -20px; width: 24px; height: 24px; opacity: 1.0; left: 0; right: 0; margin-left: auto; margin-right: auto;">X</button>
+         <button type="button" data-bs-dismiss="modal" class="btn-close bg-white rounded-circle position-absolute" style="border: 2px solid #232A41; color: #232A41; font-family: BreulGroteskB; bottom: -20px; width: 24px; height: 24px; opacity: 1.0; left: 0; right: 0; margin-left: auto; margin-right: auto; line-height: 16px;"></button>
       </div>
    </div>
 </div>

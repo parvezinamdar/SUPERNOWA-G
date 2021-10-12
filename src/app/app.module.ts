@@ -4,6 +4,8 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { DataTablesModule } from "angular-datatables";
 
+import { SwiperModule } from 'ngx-swiper-wrapper';
+
 import { AppComponent } from './app.component';
 import { GamesComponent } from './pages/games/games.component';
 import { VideoplayerComponent } from './component/videoplayer/videoplayer.component';
@@ -159,11 +161,11 @@ const routes: Routes = [
     TransactionReportComponent
   ],
   imports: [
+    SwiperModule,
     BrowserModule,
     DataTablesModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
