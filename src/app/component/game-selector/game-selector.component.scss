@@ -27,25 +27,20 @@
     }
     .swiper-slide .row {
         border-radius: 5px;
+        padding-right: 1rem!important;
+        padding-left: 1rem!important;
     }
 }
 
-.swiper-slide:hover div {
-    color: var(--green); 
-}
-
 .swiper-slide:hover .row {
-    box-shadow: 0px 0px 5px 1px #92ffd1;
-    border: 2px solid #92ffd1;
-}
-
-.swiper-slide-current:hover .row {
-    color: black;
+    box-shadow: 0px 0px 5px 0px #fb92e2;
+    border: 2px solid #fb92e2;
 }
 
 .swiper-slide-current .row {
-    color: black;
-    background: #92ffd1;
-    box-shadow: 0px 0px 5px 1px #92ffd1;
-    font-weight: bold;
+    color: #FFFFFF;
+    text-shadow: 0px 0px 10px #ffffff;
+    background: linear-gradient(0deg, #FB7DDE, #FB7DDE), linear-gradient(95.86deg, #FF63D8 7.25%, #F13FBC 94.2%);
+    box-shadow: 0px 0px 5px 0px #fb92e2;
+    font-family: "Casino", sans-serif!important;
 }

@@ -34,11 +34,11 @@
 <app-how-to-play></app-how-to-play>
    
          <div class="position-absolute agent-logo">
-            <img src="../assets/images/Supwenowa-Logo.png">
+            <img src="../assets/images/logo.png">
          </div>
       </div>
 
-      <div class="game-details row w-100 m-auto justify-content-center bottom-0" style="background: linear-gradient(180deg, #101421 8.85%, #053755 100%);">
+      <div class="game-details row w-100 m-auto justify-content-center bottom-0" style="background: url(/assets/images/table-bg.jpg); background-size: cover;">
          <div *ngIf="state == 'new'" class="text-center text-uppercase p-1 p-md-2 newGameText">
             New Game Starting
          </div>
@@ -323,47 +323,47 @@
           <div class="row m-0 p-0" style="height: 200px; background: black;">
              <div class="col-4 left px-2 py-0 h-100">
                 <div class="row">
-                  <div class="col col-3 p-1">
+                  <div class="col col-3">
                       <div class="btn button disabled">
                           <p>Spade</p>
                       </div>
                   </div>
-                  <div class="col col-3 p-1">
+                  <div class="col col-3">
                      <div class="btn button disabled">
                          <p>Club</p>
                      </div>
                  </div>
-                  <div class="col col-3 p-1">
+                  <div class="col col-3">
                      <div class="btn button disabled">
                         <p>Diamond</p>
                      </div>
                   </div>
-                  <div class="col col-3 p-1">
+                  <div class="col col-3">
                      <div class="btn button disabled">
                         <p>Heart</p>
                      </div>
                   </div>
                 </div>
                 <div class="row">
-                   <div class="col col-3 p-1">
+                   <div class="col col-3">
                       <div (click)="AddBet('Player A', 4.15)" class="btn button blue">
                          <p>Back</p>
                          <p class="points">4.15</p>
                       </div>
                    </div>
-                   <div class="col col-3 p-1">
+                   <div class="col col-3">
                       <div (click)="AddBet('Player A', 4.15)" class="btn button blue">
                          <p>Back</p>
                          <p class="points">1.5o</p>
                       </div>
                    </div>
-                   <div class="col col-3 p-1">
+                   <div class="col col-3">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button blue">
                         <p>Back</p>
                         <p class="points">1.5o</p>
                      </div>
                   </div>
-                  <div class="col col-3 p-1">
+                  <div class="col col-3">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button blue">
                         <p>Back</p>
                         <p class="points">1.5o</p>
@@ -371,25 +371,25 @@
                   </div>
                 </div>
                 <div class="row">
-                  <div class="col col-3 p-1">
+                  <div class="col col-3">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button pink">
                         <p>Lay</p>
                         <p class="points">4.15</p>
                      </div>
                   </div>
-                  <div class="col col-3 p-1">
+                  <div class="col col-3">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button pink">
                         <p>Lay</p>
                         <p class="points">1.5o</p>
                      </div>
                   </div>
-                  <div class="col col-3 p-1">
+                  <div class="col col-3">
                     <div (click)="AddBet('Player A', 4.15)" class="btn button pink">
                        <p>Lay</p>
                        <p class="points">1.5o</p>
                     </div>
                  </div>
-                 <div class="col col-3 p-1">
+                 <div class="col col-3">
                   <div (click)="AddBet('Player A', 4.15)" class="btn button pink">
                      <p>Lay</p>
                      <p class="points">1.5o</p>
@@ -400,14 +400,14 @@
              <div class="col-4 pe-none"></div>
              <div class="col-4 right px-2 py-0">
                 <div class="row h-50">
-                   <div class="col col-6 p-1">
+                   <div class="col col-6">
                       <div (click)="AddBet('Player A', 4.15)" class="btn button">
                          <p>Red</p>
                          <p class="points">12.34</p>
                          
                       </div>
                    </div>
-                   <div class="col col-6 p-1">
+                   <div class="col col-6">
                       <div (click)="AddBet('Player A', 4.15)" class="btn button">
                          <p>Black</p>
                          <p class="points">12.34</p>
@@ -416,14 +416,14 @@
                    </div>
                 </div>
                 <div class="row h-50">
-                   <div (click)="AddBet('Player A', 4.15)" class="col col-6 p-1">
+                   <div (click)="AddBet('Player A', 4.15)" class="col col-6">
                       <div class="btn button">
                          <p>Odd</p>
                          <p class="points">12.34</p>
                          
                       </div>
                    </div>
-                   <div class="col col-6 p-1">
+                   <div class="col col-6">
                       <div (click)="AddBet('Player A', 4.15)" class="btn button">
                          <p>Even</p>
                          <p class="points">12.34</p>
@@ -438,7 +438,7 @@
        <app-bet-slip class="d-block d-md-none p-0" [selected]="selected" [player]="player" [odds]="odds"></app-bet-slip>
 
        <div class="row player-controls p-0 m-auto mobile show mt-4 position-relative" style="width: 85%; margin-bottom: 100px !important;">
-          <div class="top overflow-hidden" style="border: 1.5px solid var(--green); background: #101421; border-radius: 20px; box-shadow: 0px 0px 5px 0.5px var(--green);">
+          <div class="top overflow-hidden" style="border: 1.5px solid #f092ff; background: #101421; border-radius: 20px; box-shadow: 0px 0px 5px 0.5px #f092ff;">
              <div class="row">
                 <div class="col p-1">
                    <div class="btn button disabled">
@@ -515,7 +515,7 @@
             </div>
           </div>
 
-          <div class="bottom overflow-hidden" style="margin-top: -10px; border: 1.5px solid var(--green); background: #101421; border-radius: 20px; box-shadow: 0px 0px 5px 0.5px var(--green);">
+          <div class="bottom overflow-hidden" style="margin-top: -10px; border: 1.5px solid #f092ff; background: #101421; border-radius: 20px; box-shadow: 0px 0px 5px 0.5px #f092ff;">
              <div class="row">
                 <div class="col p-1">
                    <div (click)="AddBet('Player A', 4.15)" class="btn button">

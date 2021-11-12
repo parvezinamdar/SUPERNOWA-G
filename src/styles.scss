@@ -1,11 +1,7 @@
 body {
-    background: url(/assets/images/background-1.png);
-    background: url(/assets/images/background-2.png);
-    background-color: #101421!important;
-    background-size: contain;
-    background-position: center;
-    background-repeat: repeat-x;
-    font-family: "Inter", sans-serif!important;
+    background: url(/assets/images/main-bg.jpg);
+    background-size: cover;
+    font-family: "Gilroy", sans-serif!important;
 }
 
 @media (min-width: 768px) {
@@ -26,17 +22,21 @@ body {
     }
 }
 
+.smoke {
+    position: fixed;
+    right: 0;
+    top: 0;
+}
+
 .swiper-button-next::after, .swiper-button-prev::after {
     content: none!important;
 }
 
 .swiper-button-prev {
-    background-image: url(/assets/images/icon-left.svg)!important;
+    background-image: url(/assets/images/icon-left.png)!important;
     background-repeat: no-repeat;
     background-position: center;
-    left: -10px!important;
-    background-color: #101421;
-    width: 75px!important;
+    background-size: contain;
     transition:margin 0.1s linear;
 }
 
@@ -45,177 +45,13 @@ body {
 }
 
 .swiper-button-next {
-    background-image: url(/assets/images/icon-right.svg)!important;
+    background-image: url(/assets/images/icon-right.png)!important;
     background-repeat: no-repeat;
     background-position: center;
-    right: -10px!important;
-    background-color: #101421;
-    width: 75px!important;
+    background-size: contain;
     transition:margin 0.1s linear;
 }
 
 .swiper-button-next:hover {
     margin-right: -5px!important;
 }
-
-.winner {
-.top .row:nth-child(1), .left .row:nth-child(1) {
-.button {
-    animation: winner 0.2s infinite;
-
-    &::after {
-        animation: winner 0.2s infinite;
-    }
-}
-}
-
-.top .row:nth-child(2), .left .row:nth-child(2) {
-.button {
-    animation: winner 0.2s infinite;
-    animation-delay: 0.25s;
-
-    &::after {
-        animation: winner 0.2s infinite;
-        animation-delay: 0.25s;
-    }
-}
-}
-
-.top .row:nth-child(3), .left .row:nth-child(3) {
-.button {
-    animation: winner 0.2s infinite;
-    animation-delay: 0.5s;
-
-    &::after {
-        animation: winner 0.2s infinite;
-        animation-delay: 0.5s;
-    }
-}
-}
-
-.top .row:nth-child(4), .left .row:nth-child(4) {
-.button {
-    animation: winner 0.2s infinite;
-    animation-delay: 0.75s;
-
-    &::after {
-        animation: winner 0.2s infinite;
-        animation-delay: 0.75s;
-    }
-}
-}
-
-.bottom .row:nth-child(1), .right .row:nth-child(1) {
-.button {
-    animation: winner 0.2s infinite;
-
-    &::after {
-        animation: winner 0.2s infinite;
-    }
-}
-}
-
-.bottom .row:nth-child(2), .right .row:nth-child(2) {
-.button {
-    animation: winner 0.2s infinite;
-    animation-delay: 0.25s;
-
-    &::after {
-        animation: winner 0.2s infinite;
-        animation-delay: 0.25s;
-    }
-}
-}
-
-.bottom .row:nth-child(3), .right .row:nth-child(3) {
-.button {
-    animation: winner 0.2s infinite;
-    animation-delay: 0.5s;
-
-    &::after {
-        animation: winner 0.2s infinite;
-        animation-delay: 0.5s;
-    }
-}
-}
-
-.bottom .row:nth-child(4), .right .row:nth-child(4) {
-.button {
-    animation: winner 0.2s infinite;
-    animation-delay: 0.75s;
-
-    &::after {
-        animation: winner 0.2s infinite;
-        animation-delay: 0.75s;
-    }
-}
-}
-
-@keyframes winner {
-from {
-    background: #ed00ff;
-    box-shadow: inset 0px 12px 12px rgba(11, 11, 11, 0.4), 0px 0px 0px 2px rgba(237,0,255,.08);
-}
-to {}
-}
-
-.circle-container li, #betPlaceBtn {
-animation: blinky 0.5s infinite;
-}
-
-@keyframes blinky {
-from {
-    opacity: 1.0;
-}
-to {
-    opacity: 0.5;
-}
-}
-
-.video-player {
---borderWidth: 3px;
-border-radius: 10px;
-}
-
-.video-player:after {
-content: '';
-position: absolute;
-top: calc(-1 * var(--borderWidth));
-left: calc(-1 * var(--borderWidth));
-height: calc(100% + var(--borderWidth) * 2);
-width: calc(100% + var(--borderWidth) * 2);
-background: linear-gradient(60deg, #f79533, #f37055, #ef4e7b, #a166ab, #5073b8, #1098ad, #07b39b, #6fba82);
-border-radius: calc(2 * var(--borderWidth));
-z-index: -1;
--webkit-animation: animatedgradient 0.2s ease alternate infinite;
-        animation: animatedgradient 0.2s ease alternate infinite;
-background-size: 300% 300%;
-}
-
-
-@-webkit-keyframes animatedgradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-
-
-@keyframes animatedgradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
-}
-  

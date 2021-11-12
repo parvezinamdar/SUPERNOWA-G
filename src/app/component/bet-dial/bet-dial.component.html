@@ -26,12 +26,12 @@
        <li class="c11" value="500000">50K</li>
        <li class="c12" value="100000">100K</li>
     </ul>
-    <img src="../assets/images/triangle.svg" style="position: absolute; top: 0px; margin-top: 15px; left: 0; right: 0; margin-left: auto; margin-right: auto;">
-    <div style="z-index: 99999; overflow: hidden; text-align: center; position: absolute; left: 0; right: 0; top: 50%; width: 50%; margin: auto; height: 100%; border: 3px solid #92FFD1; border-radius: 50%; background: #0474B5; padding-bottom: 50%; box-shadow: inset 0px 12px 12px rgba(0, 0, 0, 0.5); ">
-    <div *ngIf="betState == null" (click)="placeBet()" id="betPlaceBtn" style="font-size: 2.3rem; font-family: BreulGroteskB; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 120px;display: flex; justify-content: center; align-items: center;background: linear-gradient(179.63deg, #05D3A2 68.18%, #4BFFC9 85.75%, #34C0A7 102.25%); opacity: 1.0; cursor:pointer;">
+    <img src="../assets/images/triangle.png" style="position: absolute; top: 0px; margin-top: 15px; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+    <div style="z-index: 99999; overflow: hidden; text-align: center; position: absolute; left: 0; right: 0; top: 50%; width: 50%; margin: auto; height: 100%; border: 1px solid #F092FF; border-radius: 50%; background: linear-gradient(153.85deg, #CF65F4 16.22%, #952CB9 59.51%); padding-bottom: 50%; box-shadow: inset 0px 12px 12px rgba(0, 0, 0, 0.5); ">
+    <div *ngIf="betState == null" (click)="placeBet()" id="betPlaceBtn" style="font-size: 2.3rem; font-family: Gilroy; font-weight: bold; color: white; text-transform: uppercase; height: 120px;display: flex; justify-content: center; align-items: center;background: linear-gradient(153.85deg, #CF65F4 16.22%, #952CB9 59.51%); opacity: 1.0; cursor:pointer;">
        Bet
     </div>
-    <div *ngIf="betState == 'loading'" style="font-family: BreulGroteskB; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 120px;display: flex; justify-content: center; align-items: center;background: linear-gradient(179.63deg, #05D3A2 68.18%, #4BFFC9 85.75%, #34C0A7 102.25%); opacity: 1.0; cursor:pointer;">
+    <div *ngIf="betState == 'loading'" style="font-family: Gilroy; font-weight: bold; color: white; text-transform: uppercase; height: 120px;display: flex; justify-content: center; align-items: center;background: linear-gradient(153.85deg, #CF65F4 16.22%, #952CB9 59.51%); opacity: 1.0; cursor:pointer;">
       <div class="spinner-border text-light"></div>
     </div>
     </div>
@@ -55,19 +55,19 @@
          <li class="c12" value="100000">100K</li>
       </ul>
 
-       <img src="../assets/images/triangle.svg" style="position: absolute; top: 10px; left: 0; right: 0; margin-left: auto; margin-right: auto;">
+       <img src="../assets/images/triangle.png" style="position: absolute; top: 10px; left: 0; right: 0; margin-left: auto; margin-right: auto;">
 
-       <div style="overflow: hidden; text-align: center; position: absolute; left: 0; right: 0; top: 50%; width: 50%; margin: auto; height: 100%; border: 1.5px solid #92FFD1; border-radius: 50%; background: #0474B5; box-shadow: inset 0px 12px 12px rgba(0, 0, 0, 0.5);">
+       <div style="overflow: hidden; text-align: center; position: absolute; left: 0; right: 0; top: 50%; width: 50%; margin: auto; height: 100%; border: 1.5px solid #92FFD1; border-radius: 50%; background: linear-gradient(153.85deg, #CF65F4 16.22%, #952CB9 59.51%); box-shadow: inset 0px 12px 12px rgba(0, 0, 0, 0.5);">
 
          <div *ngIf="betState == null">
-            <div  class="row" style="font-family: BreulGroteskB; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 50px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
+            <div  class="row" style="font-family: Gilroy; font-weight: bold; color: white; text-transform: uppercase; height: 50px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
                <span class="col-12" (click)="placeBet()" id="betPlaceBtn" style="z-index: 999; pointer-events: all; height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Bet</span>
             </div>
-            <div class="row" style="font-family: BreulGroteskB;height: 50px;text-transform: uppercase;">
+            <div class="row" style="font-family: Gilroy;height: 50px;text-transform: uppercase;">
                <span class="col-12 cancel" style="z-index: 9; pointer-events: all; background: url(../assets/images/button-redbg.png); height: 100%; display: flex; align-items: center; padding: 0px; font-size: 10px; justify-content: center;">Cancel</span>
             </div>
          </div>
-         <div *ngIf="betState == 'loading'" style="font-family: BreulGroteskB; font-weight: bold; color: #0D604A; text-transform: uppercase; height: 100px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
+         <div *ngIf="betState == 'loading'" style="font-family: Gilroy; font-weight: bold; color: white; text-transform: uppercase; height: 100px; display: flex; justify-content: center; align-items: center; background: url(../assets/images/button-greenbg.png);">
            <div class="spinner-border text-light"></div>
          </div>         
        </div>

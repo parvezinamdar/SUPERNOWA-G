@@ -34,11 +34,11 @@
 <app-how-to-play></app-how-to-play>
    
          <div class="position-absolute agent-logo">
-            <img src="../assets/images/Supwenowa-Logo.png">
+            <img src="../assets/images/logo.png">
          </div>
       </div>
 
-      <div class="game-details row w-100 m-auto justify-content-center bottom-0" style="background: linear-gradient(180deg, #101421 8.85%, #053755 100%);">
+      <div class="game-details row w-100 m-auto justify-content-center bottom-0" style="background: url(/assets/images/table-bg.jpg); background-size: cover;">
          <div *ngIf="state == 'new'" class="text-center text-uppercase p-1 p-md-2 newGameText">
             New Game Starting
          </div>
@@ -89,14 +89,14 @@
           <div class="row m-0 p-0" style="height: 200px; background: black;">
              <div class="col-4 left px-2 py-0 h-100">
                 <div class="row h-50">
-                  <div class="col col-6 p-1">
+                  <div class="col col-6">
                      <div class="info" data-bs-toggle="modal" data-bs-target="#single-panna"><img src="../assets/images/info-circle.svg" width="15"></div>
                       <div (click)="mode='single'" class="btn button">
                           <p>Single</p>
                           <p class="points">1 Ka 9.5</p>
                       </div>
                   </div>
-                  <div class="col col-6 p-1">
+                  <div class="col col-6">
                      <div (click)="mode='single-panna'" class="btn button">
                          <p>Single Panna</p>
                          <p class="points">1 Ka 140</p>
@@ -104,13 +104,13 @@
                  </div>
                 </div>
                 <div class="row h-50">
-                   <div class="col col-6 p-1">
+                   <div class="col col-6">
                       <div (click)="mode='double-panna'" class="btn button">
                          <p>Double Panna</p>
                          <p class="points">1 Ka 240</p>
                       </div>
                    </div>
-                   <div class="col col-6 p-1 position-relative">
+                   <div class="col col-6 position-relative">
                      <div class="info" data-bs-toggle="modal" data-bs-target="#total-panna"><img src="../assets/images/info-circle.svg" width="15"></div>
                       <div (click)="mode='total-panna'" class="btn button">
                          <p>Total Panna</p>
@@ -122,21 +122,21 @@
              <div class="col-4 pe-none"></div>
             <div *ngIf="mode == 'disabled' || mode == 'single' || mode == 'single-panna' || mode == 'double-panna'" class="col-4 right px-2 py-0">
                <div class="row h-25">
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>1</p>
                         <p class="points">12.34</p>
                         
                      </div>
                   </div>
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>2</p>
                         <p class="points">12.34</p>
                         
                      </div>
                   </div>
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>3</p>
                         <p class="points">12.34</p>
@@ -145,21 +145,21 @@
                   </div>
                </div>
                <div class="row h-25">
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>4</p>
                         <p class="points">12.34</p>
                         
                      </div>
                   </div>
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>5</p>
                         <p class="points">12.34</p>
                         
                      </div>
                   </div>
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>6</p>
                         <p class="points">12.34</p>
@@ -168,21 +168,21 @@
                   </div>
                </div>
                <div class="row h-25">
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>7</p>
                         <p class="points">12.34</p>
                         
                      </div>
                   </div>
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>8</p>
                         <p class="points">12.34</p>
                         
                      </div>
                   </div>
-                  <div class="col col-4 p-1">
+                  <div class="col col-4">
                      <div (click)="AddBet('Player A', 4.15)" class="btn button {{mode == 'single' || mode == 'single-panna' || mode == 'double-panna' ? '':'disabled'}}">
                         <p>9</p>
                         <p class="points">12.34</p>
@@ -218,7 +218,7 @@
        <app-bet-slip class="d-block d-md-none p-0" [selected]="selected" [player]="player" [odds]="odds"></app-bet-slip>
 
        <div class="row player-controls p-0 m-auto mobile show mt-4 position-relative" style="width: 85%; margin-bottom: 100px !important;">
-          <div class="top overflow-hidden" style="border: 1.5px solid var(--green); background: #101421; border-radius: 20px; box-shadow: 0px 0px 5px 0.5px var(--green);">
+          <div class="top overflow-hidden" style="border: 1.5px solid #f092ff; background: #101421; border-radius: 20px; box-shadow: 0px 0px 5px 0.5px #f092ff;">
              <div class="row">
                 <div class="col p-1 position-relative">
                   <div class="info" data-bs-toggle="modal" data-bs-target="#single-panna"><img src="../assets/images/info-circle.svg" width="15"></div>
@@ -384,7 +384,7 @@
                         </li>
                      </ul>
                  </div>
-                 <button type="button" data-bs-dismiss="modal" class="btn-close" style="background: #232A41; border: 2px solid #8EF6CB; color: #83E5BF; font-family: BreulGroteskB; border-radius: 50%; position: absolute; bottom: 0px; right: 0px; width: 24px; height: 24px; opacity: 1.0; line-height: 16px;">X</button>
+                 <button type="button" data-bs-dismiss="modal" class="btn-close" style="background: #232A41; border: 2px solid #8EF6CB; color: #83E5BF; font-family: Gilroy; border-radius: 50%; position: absolute; bottom: 0px; right: 0px; width: 24px; height: 24px; opacity: 1.0; line-height: 16px;">X</button>
              </div>
          </div>
      </div>
@@ -427,7 +427,7 @@
                      </li>
                   </ul>
               </div>
-              <button type="button" data-bs-dismiss="modal" class="btn-close" style="background: #232A41; border: 2px solid #8EF6CB; color: #83E5BF; font-family: BreulGroteskB; border-radius: 50%; position: absolute; bottom: 0px; right: 0px; width: 24px; height: 24px; opacity: 1.0; line-height: 16px;">X</button>
+              <button type="button" data-bs-dismiss="modal" class="btn-close" style="background: #232A41; border: 2px solid #8EF6CB; color: #83E5BF; font-family: Gilroy; border-radius: 50%; position: absolute; bottom: 0px; right: 0px; width: 24px; height: 24px; opacity: 1.0; line-height: 16px;">X</button>
           </div>
       </div>
   </div>

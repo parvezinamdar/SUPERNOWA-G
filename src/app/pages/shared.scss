@@ -5,6 +5,10 @@
     display: none;
  }
 
+ .col {
+   padding: 0.2rem!important;
+ }
+
  .content {
     overflow-x: hidden;
     max-width: 1440px;
@@ -13,7 +17,7 @@
     height: 100%;
  }
  .blink {
-   //  font-family: BreulGroteskB; background: #E51937; border-radius: 5px;
+   //  font-family: Gilroy; background: #E51937; border-radius: 5px;
     animation: blinker 2s linear infinite;
  }
  @keyframes blinker {
@@ -22,7 +26,8 @@
    }
  }
  .btn {
-    background: linear-gradient(180deg, #33416C -0.64%, rgba(51, 65, 108, 0) 116.6%);
+    background: linear-gradient(175.19deg, #9A8BCE -67.57%, #13083A 60.73%);
+    box-shadow: 2px 14px 13.2554px rgba(10, 9, 11, 0.555), inset -0.295239px -3.3746px 3.38749px #11053C, inset 0.295239px 3.3746px 3.38749px #5D5089;
     padding: 5px 10px 5px 10px;
     border: 0;
     border-radius: 0;
@@ -33,12 +38,23 @@
     width: 100%;
     height: 100%;
     position: relative;
+
+    &.alternate {
+      background: linear-gradient(175.19deg, #9A8BCE -67.57%, #380750 60.73%);
+    }
  
     p {
-       text-transform: uppercase;
-       font-size: 12px;
-       z-index: 999;
-       margin: 0;
+      text-transform: uppercase;
+      font-size: 14px;
+      color: #B7FCF8;
+      z-index: 999;
+      margin: 0;
+   }
+   
+    p:first-child {
+      font-family: "Casino"!important;
+      font-size: 1.25rem;
+      color: white;
     }
 
     img {
@@ -84,7 +100,7 @@
  }
  .newGameText {
     font-size: 1rem;
-    color: #91FDD0;
+    color: #F092FF;
  }
  .mobile.show {
     display: block;
@@ -132,18 +148,18 @@
  
    .newGameText {
        font-size: 1.5rem;
-       color: #91FDD0;
+       color: #F092FF;
     }
  
     .video-player {
-        width: 60%;
+        width: 50%;
    }
  }
  .disabled {
     pointer-events: none!important;
     background: linear-gradient(180deg, #082434 -0.64%, rgba(51, 65, 108, 0) 116.6%);
     opacity: 1.0;
-    font-family: BreulGroteskB;
+    font-family: Gilroy;
  }
  .disabled p {
     font-size: 18px;
@@ -154,8 +170,8 @@
     height: 30px;
     perspective: 1000px;
     img {
-      //   border: 1px solid #92FFD1;
         border-radius: 2px;
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
    }
  }
  @media (min-width: 768px) {
@@ -180,10 +196,6 @@
     height: 100%;
     -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
- 
-    img {
-      box-shadow: 0px 0px 5px 0.5px #92ffd1;
-    }
  }
  .flip-card-back {
     transform: rotateY(180deg);
@@ -354,7 +366,14 @@
        border-radius: 0;
        border-top-right-radius: 10px;
        border-bottom-right-radius: 10px;
-       background: linear-gradient(180deg, #33416C -0.64%, rgba(51, 65, 108, 0) 116.6%);
+       background: linear-gradient(175.19deg, #9A8BCE -67.57%, #13083A 60.73%);
+       box-shadow: 2px 14px 13.2554px rgba(10, 9, 11, 0.555), inset -0.295239px -3.3746px 3.38749px #11053C, inset 0.295239px 3.3746px 3.38749px #5D5089;
+    }
+
+    &.alternate {
+      &:after {
+         background: linear-gradient(175.19deg, #9A8BCE -67.57%, #380750 60.73%);
+      }
     }
  
     &:hover, &.active {
@@ -418,7 +437,14 @@
        border-radius: 0;
        border-top-left-radius: 10px;
        border-bottom-left-radius: 10px;
-       background: linear-gradient(180deg, #33416C -0.64%, rgba(51, 65, 108, 0) 116.6%);
+       background: linear-gradient(175.19deg, #9A8BCE -67.57%, #13083A 60.73%);
+       box-shadow: 2px 14px 13.2554px rgba(10, 9, 11, 0.555), inset -0.295239px -3.3746px 3.38749px #11053C, inset 0.295239px 3.3746px 3.38749px #5D5089;
+    }
+
+    &.alternate {
+      &:after {
+         background: linear-gradient(175.19deg, #9A8BCE -67.57%, #380750 60.73%);
+      }
     }
  
     &:hover, &.active {
@@ -485,7 +511,7 @@
  }
  
  .betResult p {
-    color: #91FDD0;
+    color: #F092FF;
     margin-top: auto;
     margin-bottom: auto;
  }
@@ -494,48 +520,6 @@
    margin-top: auto;
    margin-bottom: auto;
 }
- 
- .border-right::after {
-    height: 75%;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 1px;
-    right: 0;
-    background: #2585C8;
-    content: '';
-    opacity: 0.75;
-    position: absolute;
- }
- 
- .border-both::after {
-    height: 75%;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 1px;
-    right: 0;
-    background: #2585C8;
-    content: '';
-    opacity: 0.75;
-    position: absolute;
- }
- 
- .border-both::before {
-    height: 75%;
-    top: 0;
-    bottom: 0;
-    margin-top: auto;
-    margin-bottom: auto;
-    width: 1px;
-    left: 0;
-    background: #2585C8;
-    content: '';
-    opacity: 0.75;
-    position: absolute;
- }
 
  .score {
     text-align: center;

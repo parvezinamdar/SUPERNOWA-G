@@ -11,7 +11,7 @@
     background-size: contain;
     background-position: center;
     background-repeat: repeat-x;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Casino';
     }
     .button {
     background: linear-gradient(180deg, #33416C -0.64%, rgba(51, 65, 108, 0) 116.6%);
@@ -87,7 +87,7 @@
     -webkit-transform: perspective(200) rotate3d(1, 0, 0, 15deg);
     }
     .toolbar div, .toolbar p {
-    font-family: BreulGroteskB;
+    font-family: Gilroy;
     color: var(--green);
     font-size: 12px;
     line-height: 12px;
@@ -248,8 +248,10 @@
  
  .circle-container li {
     pointer-events : all;
-    opacity: 0.3;
-    background: url(/assets/images/coin.svg); background-size: cover; display: flex; justify-content: center; align-items: center; color: #034469; font-weight: bold;
+    opacity: 1;
+    background: url(/assets/images/coin.png); background-size: cover; display: flex; justify-content: center; align-items: center;
+    color: #B482E0;
+    font-weight: bold;
  }
  
  .circle-container li.active {
