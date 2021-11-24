@@ -93,6 +93,10 @@ export class ConstantService {
     CQ: {
       'name': 'Casino Queen',
       'imagePath': '/assets/images/game.jpg'
+    },
+    ABRNG: {
+      'name': 'Andar Bahar (RNG)',
+      'imagePath': '/assets/images/game.jpg'
     }
   };
 

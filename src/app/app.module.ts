@@ -16,7 +16,10 @@ import { PopupComponent } from './component/popup/popup.component';
 import { BetDialComponent } from './component/bet-dial/bet-dial.component';
 import { BetSlipComponent } from './component/bet-slip/bet-slip.component';
 import { RulesComponent } from './component/rules/rules.component';
+import { HowToPlayComponent } from './component/how-to-play/how-to-play.component';
+import { TransactionReportComponent } from './pages/transaction-report/transaction-report.component';
 
+// Live
 import { AndarbaharComponent } from './pages/andarbahar/app.component';
 import { TtcardsComponent } from './pages/ttcards/app.component';
 import { Lucky7Component } from './pages/lucky7/app.component';
@@ -33,8 +36,10 @@ import { KingraceComponent } from './pages/kingrace/app.component';
 import { PattiplayerComponent } from './pages/pattiplayer/app.component';
 import { CasinoqueenComponent } from './pages/casinoqueen/app.component';
 import { PokerComponent } from './pages/poker/app.component';
-import { HowToPlayComponent } from './component/how-to-play/how-to-play.component';
-import { TransactionReportComponent } from './pages/transaction-report/transaction-report.component';
+
+// Virtual
+import { AndarbaharComponentRNG } from './pages/andarbahar-rng/app.component';
+import { VirtualComponent } from './component/virtual/virtual.component';
 
 const routes: Routes = [
   {
@@ -123,6 +128,11 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'ABRNG',
+    component: AndarbaharComponentRNG,
+    pathMatch: 'full'
+  },
+  {
     path: 'report',
     component: TransactionReportComponent,
     pathMatch: 'full'
@@ -142,6 +152,8 @@ const routes: Routes = [
     BetDialComponent,
     BetSlipComponent,
     RulesComponent,
+    HowToPlayComponent,
+    TransactionReportComponent,
     AndarbaharComponent,
     TtcardsComponent,
     Lucky7Component,
@@ -157,8 +169,8 @@ const routes: Routes = [
     PattiplayerComponent,
     CasinoqueenComponent,
     PokerComponent,
-    HowToPlayComponent,
-    TransactionReportComponent
+    AndarbaharComponentRNG,
+    VirtualComponent
   ],
   imports: [
     SwiperModule,
